@@ -121,7 +121,7 @@ public class Academia {
 
     public Profesor buscarProfesor(String idProfesor) {
         for (Profesor p : listProfesores) {
-            if (p.getIdprofesor().equals(idProfesor)) {
+            if (p.getIdProfesor().equals(idProfesor)) {
                 return p;
             }
         }
@@ -134,7 +134,7 @@ public class Academia {
 
     public boolean actualizarProfesor(String id, Profesor actualizado) {
         for (int i = 0; i < listProfesores.size(); i++) {
-            if (listProfesores.get(i).getIdprofesor().equals(id)) {
+            if (listProfesores.get(i).getIdProfesor().equals(id)) {
                 listProfesores.set(i, actualizado);
                 return true;
             }
@@ -143,7 +143,7 @@ public class Academia {
     }
 
     public boolean eliminarProfesor(String idProfesor) {
-        return listProfesores.removeIf(p -> p.getIdprofesor().equals(idProfesor));
+        return listProfesores.removeIf(p -> p.getIdProfesor().equals(idProfesor));
     }
 
 

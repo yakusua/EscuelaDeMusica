@@ -1,29 +1,32 @@
 package co.edu.uniquindio.poo.academiademusica.model;
-
 import co.edu.uniquindio.poo.academiademusica.model.enums.Instrumento;
 
-import java.util.LinkedList;
-
 public class Profesor extends Usuario {
-    private String idprofesor;
-    private String especialidad;
-    private LinkedList<Clase> listClasesAsignadas;
+    private String idProfesor;
     private Instrumento instrumento;
+    private String especialidad;
 
-    public Profesor(String nombre, String email, String rol,String idprofesor, String especialidad, Instrumento instrumento) {
-        super(nombre, email, rol);
-        this.idprofesor = idprofesor;
-        this.especialidad = especialidad;
-        this.listClasesAsignadas = new LinkedList<>();
+    public Profesor(String nombre, String email, String idProfesor, Instrumento instrumento, String especialidad) {
+        super(nombre, email, "Profesor");
+        this.idProfesor = idProfesor;
         this.instrumento = instrumento;
+        this.especialidad = especialidad;
     }
 
-    public LinkedList<Clase> getListClasesAsignadas() {
-        return listClasesAsignadas;
+    public String getIdProfesor() {
+        return idProfesor;
     }
 
-    public void setListClasesAsignadas(LinkedList<Clase> listClasesAsignadas) {
-        this.listClasesAsignadas = listClasesAsignadas;
+    public void setIdProfesor(String idProfesor) {
+        this.idProfesor = idProfesor;
+    }
+
+    public Instrumento getInstrumento() {
+        return instrumento;
+    }
+
+    public void setInstrumento(Instrumento instrumento) {
+        this.instrumento = instrumento;
     }
 
     public String getEspecialidad() {
@@ -34,29 +37,27 @@ public class Profesor extends Usuario {
         this.especialidad = especialidad;
     }
 
-    public String getIdprofesor() {
-        return idprofesor;
+   //debe gestionar el horario
+    public void gestionarHorario() {
+        System.out.println("Gestionando horario del profesor: " + nombre);
+    }
+//debe registrar una asistencia
+    public void registrarAsistencia(String estudiante) {
+        System.out.println("Registrando asistencia del estudiante: " + estudiante + " por " + nombre);
+    }
+//debe crear una clase
+    public void crearClase(String curso) {
+        System.out.println("Creando clase de " + curso + " por profesor: " + nombre);
     }
 
-    public void setIdprofesor(String idprofesor) {
-        this.idprofesor = idprofesor;
-    }
-
-    public Instrumento getInstrumento() {
-        return instrumento;
-    }
-    public void setInstrumento(Instrumento instrumento) {
-        this.instrumento = instrumento;
-    }
     @Override
     public String toString() {
         return "Profesor{" +
-                "idProfesor='" + idprofesor + '\'' +
-                ", nombre='" + getNombre() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", especialidad='" + especialidad + '\'' +
+                "idProfesor='" + idProfesor + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
                 ", instrumento=" + instrumento +
-                ", clasesAsignadas=" + listClasesAsignadas.size() +
+                ", especialidad='" + especialidad + '\'' +
                 '}';
     }
 }

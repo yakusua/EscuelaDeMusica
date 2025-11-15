@@ -11,12 +11,12 @@ public abstract class Usuario implements IUsuario {
         this.rol = rol;
     }
 
-    public String getRol() {
-        return rol;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getEmail() {
@@ -27,32 +27,30 @@ public abstract class Usuario implements IUsuario {
         this.email = email;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getRol() {
+        return rol;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    //relacion con el implements (boceto)
+  //metodos del interface
     @Override
     public void registrar() {
-        System.out.println("Usuario registrado: " + nombre);
+        System.out.println(rol + " registrado: " + nombre);
     }
 
     @Override
     public void actualizar() {
-        System.out.println("Datos actualizados para: " + nombre);
+        System.out.println("Datos actualizados para " + rol + ": " + nombre);
     }
 
     @Override
-    public void consultarHorarios() {
-        System.out.println("Consultando horarios de: " + nombre);
-    }
-
-    @Override
-    public void generarReporte() {
-        System.out.println("Generando reporte para: " + nombre);
+    public String toString() {
+        return rol + "{" +
+                "nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

@@ -45,4 +45,14 @@ public class Salon {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Salon{" +
+                "nombre='" + nombre + '\'' +
+                ", capacidad=" + capacidad +
+                ", clase=" + clase +
+                ", administradorAcademico=" + administradorAcademico +
+                '}';
+    }
 }

@@ -1,33 +1,26 @@
 package co.edu.uniquindio.poo.academiademusica.model;
+
 import co.edu.uniquindio.poo.academiademusica.model.enums.Nivel;
 
 import java.util.LinkedList;
 
-public class Estudiante extends Usuario{
-
-    //hereda atributo nombre
+public class Estudiante extends Usuario {
     private String idEstudiante;
     private int edad;
     private Nivel nivel;
-    private String curso;
     private double asistencia;
     private double progreso;
-    private LinkedList<Curso> listCursosInscritos;
-    private LinkedList<Curso> listCursosAprobados;
+    private LinkedList<Nivel> listCursosAprobados = new LinkedList<>();
 
-    public Estudiante(String nombre, String email, String rol,
-                      String idEstudiante, int edad, Nivel nivel,
-                      String curso, double asistencia, double progreso) {
 
-        super(nombre, email, rol);
+    public Estudiante(String nombre, String email, String idEstudiante, int edad, Nivel nivel) {
+        super(nombre, email, "Estudiante");
         this.idEstudiante = idEstudiante;
         this.edad = edad;
         this.nivel = nivel;
-        this.curso = curso;
-        this.asistencia = asistencia;
-        this.progreso = progreso;
-        this.listCursosInscritos = new LinkedList<>();
-        this.listCursosAprobados = new LinkedList<>();
+        this.asistencia = 0.0;
+        this.progreso = 0.0;
+        this.listCursosAprobados.add(nivel);
     }
 
     public String getIdEstudiante() {
@@ -54,14 +47,6 @@ public class Estudiante extends Usuario{
         this.nivel = nivel;
     }
 
-    public String getCurso() {
-        return curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
     public double getAsistencia() {
         return asistencia;
     }
@@ -78,35 +63,64 @@ public class Estudiante extends Usuario{
         this.progreso = progreso;
     }
 
-    public LinkedList<Curso> getListCursosInscritos() {
-        return listCursosInscritos;
-    }
-
-    public void setListCursosInscritos(LinkedList<Curso> listCursosInscritos) {
-        this.listCursosInscritos = listCursosInscritos;
-    }
-
-    public LinkedList<Curso> getListCursosAprobados() {
+    public LinkedList<Nivel> getListCursosAprobados() {
         return listCursosAprobados;
     }
 
-    public void setListCursosAprobados(LinkedList<Curso> listCursosAprobados) {
+    public void setListCursosAprobados(LinkedList<Nivel> listCursosAprobados) {
         this.listCursosAprobados = listCursosAprobados;
     }
 
+    public void agregarCursoAprobado(Nivel nivel) {
+        listCursosAprobados.add(nivel);
+    }
+
+
+
+    public void consultarHorario() {
+        System.out.println("Consultando horario de: " + nombre);
+    }
+
+    public void descargarReporte() {
+        System.out.println("Reporte de progreso de: " + nombre);
+    }
+    public boolean inscribirCurso(String nombreCurso, Nivel nivelCurso) {
+        // Si es nivel 1, no hay prerrequisito
+        if (nivelCurso == Nivel.PRINCIPIANTE) {
+            System.out.println(nombre + " se inscribió en " + nombreCurso);
+            return true;
+        }
+
+        // Verificar si aprobó el nivel anterior
+        Nivel nivelAnterior;
+        switch (nivelCurso) {
+            case INTERMEDIO -> nivelAnterior = Nivel.PRINCIPIANTE;
+            case AVANZADO-> nivelAnterior = Nivel.INTERMEDIO;
+            default -> {
+                System.out.println("Nivel no válido");
+                return false;
+            }
+        }
+
+        if (listCursosAprobados.contains(nivelAnterior)) {
+            System.out.println(nombre + " quedó inscrito en " + nombreCurso);
+            return true;
+        } else {
+            System.out.println(nombre + " no puede inscribirse a " + nombreCurso + ". Debe aprobar nivel anterior.");
+            return false;
+        }
+    }
+    
     @Override
     public String toString() {
         return "Estudiante{" +
-                "nombre='" + nombre + '\'' +
-                ", listCursosAprobados=" + listCursosAprobados +
-                ", listCursosInscritos=" + listCursosInscritos +
-                ", progreso=" + progreso +
-                ", asistencia=" + asistencia +
-                ", curso='" + curso + '\'' +
-                ", nivel=" + nivel +
+                "idEstudiante='" + idEstudiante + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
                 ", edad=" + edad +
-                ", idEstudiante='" + idEstudiante + '\'' +
+                ", nivel=" + nivel +
+                ", asistencia=" + asistencia +
+                ", progreso=" + progreso +
                 '}';
     }
-
 }
