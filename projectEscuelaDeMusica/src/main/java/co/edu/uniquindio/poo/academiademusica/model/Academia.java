@@ -80,4 +80,135 @@ public class Academia {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public boolean agregarEstudiante(Estudiante estudiante) {
+        if (estudiante == null) return false;
+        return listEstudiantes.add(estudiante);
+    }
+
+    public Estudiante buscarEstudiante(String idEstudiante) {
+        for (Estudiante e : listEstudiantes) {
+            if (e.getIdEstudiante().equals(idEstudiante)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+    public List<Estudiante> listarEstudiantes() {
+        return new ArrayList<>(listEstudiantes);
+    }
+
+    public boolean actualizarEstudiante(String id, Estudiante actualizado) {
+        for (int i = 0; i < listEstudiantes.size(); i++) {
+            if (listEstudiantes.get(i).getIdEstudiante().equals(id)) {
+                listEstudiantes.set(i, actualizado);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarEstudiante(String idEstudiante) {
+        return listEstudiantes.removeIf(e -> e.getIdEstudiante().equals(idEstudiante));
+    }
+
+
+    public boolean agregarProfesor(Profesor profesor) {
+        if (profesor == null) return false;
+        return listProfesores.add(profesor);
+    }
+
+    public Profesor buscarProfesor(String idProfesor) {
+        for (Profesor p : listProfesores) {
+            if (p.getIdprofesor().equals(idProfesor)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public List<Profesor> listarProfesores() {
+        return new ArrayList<>(listProfesores);
+    }
+
+    public boolean actualizarProfesor(String id, Profesor actualizado) {
+        for (int i = 0; i < listProfesores.size(); i++) {
+            if (listProfesores.get(i).getIdprofesor().equals(id)) {
+                listProfesores.set(i, actualizado);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarProfesor(String idProfesor) {
+        return listProfesores.removeIf(p -> p.getIdprofesor().equals(idProfesor));
+    }
+
+
+    public boolean agregarCurso(Curso curso) {
+        if (curso == null) return false;
+        return listCursos.add(curso);
+    }
+
+    public Curso buscarCurso(int capacidad) {
+        for (Curso c : listCursos) {
+            if (c.getCapacidad() == capacidad) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public List<Curso> listarCursos() {
+        return new ArrayList<>(listCursos);
+    }
+
+    public boolean actualizarCurso(int capacidad, Curso actualizado) {
+        for (int i = 0; i < listCursos.size(); i++) {
+            if (listCursos.get(i).getCapacidad() == capacidad) {
+                listCursos.set(i, actualizado);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarCurso(int capacidad) {
+        return listCursos.removeIf(c -> c.getCapacidad() == capacidad);
+    }
+
+
+    public boolean agregarSalon(Salon salon) {
+        if (salon == null) return false;
+        return listSalones.add(salon);
+    }
+
+    public Salon buscarSalon(String nombre) {
+        for (Salon s : listSalones) {
+            if (s.getNombre().equalsIgnoreCase(nombre)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    public List<Salon> listarSalones() {
+        return new ArrayList<>(listSalones);
+    }
+
+    public boolean actualizarSalon(String nombre, Salon actualizado) {
+        for (int i = 0; i < listSalones.size(); i++) {
+            if (listSalones.get(i).getNombre().equalsIgnoreCase(nombre)) {
+                listSalones.set(i, actualizado);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarSalon(String nombre) {
+        return listSalones.removeIf(s -> s.getNombre().equalsIgnoreCase(nombre));
+    }
 }
