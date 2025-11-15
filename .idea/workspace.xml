@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="576ac3bc-a835-4a06-afcd-2bce7742f9dc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../EscuelaDeMusica" beforeDir="false" afterPath="$PROJECT_DIR$/../EscuelaDeMusica" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Segurcol" beforeDir="false" afterPath="$PROJECT_DIR$/../Segurcol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/controller/AgendaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/controller/EmpleadoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/controller/EquipoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/controller/ServicioController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/AgendaItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/CustodiaFija.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/Empleado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/Equipo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/IAgendable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/IAuditable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/OperadorMonitoreo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/PatrullajeMovil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/RegistroNovedad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/Segurcol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/Servicio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/Supervisor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/Vigilante.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/enums/EstadoEquipo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/enums/EstadoServicio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/enums/TipoArma.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/enums/TipoEquipo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/enums/TipoNovedad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/model/enums/Turno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/AgendaViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/CustodiaFijaViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/EmpleadoViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/EquipoViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/OperadorMonitoreoViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/PatrullajeMovilViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/PrimaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/ServicioViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/SupervisorViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/VentanaPrincipalViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/co/edu/uniquindio/poo/segurcoljfx/viewController/VigilanteViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/crudAgenda.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/crudEmpleado.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/crudEquipo.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/crudServicio.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/empleados/crudOperadorMonitoreo.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/empleados/crudSupervisor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/empleados/crudVigilante.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/primary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/servicios/crudCustodiaFija.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/servicios/crudPatrullajeMovil.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segurcolJFX/src/main/resources/co/edu/uniquindio/poo/segurcoljfx/ventanaPrincipal.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../veterinaria" beforeDir="false" afterPath="$PROJECT_DIR$/../veterinaria" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="35URlkTKm4RJg59YpjajQKSMz6j" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="576ac3bc-a835-4a06-afcd-2bce7742f9dc" name="Changes" comment="" />
+      <created>1763162816967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763162816967</updated>
+      <workItem from="1763162821307" duration="269000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
