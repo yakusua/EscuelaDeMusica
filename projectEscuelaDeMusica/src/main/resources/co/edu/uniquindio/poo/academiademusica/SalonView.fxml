@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.academia.viewcontroller.SalonViewController">
+
+    <children>
+        <SplitPane orientation="VERTICAL" dividerPositions="0.50">
+
+            <items>
+
+                <!-- FORM -->
+                <AnchorPane>
+                    <children>
+                        <Pane layoutX="40" layoutY="20" prefWidth="420" prefHeight="230">
+                            <children>
+
+                                <Label layoutX="160" layoutY="10" text="Gestión Salones">
+                                    <font><Font name="System Bold" size="20"/></font>
+                                </Label>
+
+                                <Label text="Nombre:" layoutX="40" layoutY="55"/>
+                                <TextField fx:id="txtNombreSalon" layoutX="150" layoutY="50"/>
+
+                                <Label text="Capacidad:" layoutX="40" layoutY="90"/>
+                                <TextField fx:id="txtCapacidadSalon" layoutX="150" layoutY="85"/>
+
+                                <Button text="Agregar" layoutX="60" layoutY="150" onAction="#onAgregarSalon"/>
+                                <Button text="Actualizar" layoutX="180" layoutY="150" onAction="#onActualizarSalon"/>
+
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
+
+                <!-- TABLE -->
+                <AnchorPane>
+                    <children>
+                        <TableView fx:id="tblSalones" layoutX="15" layoutY="10" prefWidth="460" prefHeight="230">
+                            <columns>
+                                <TableColumn fx:id="tbcNombre" text="Nombre" prefWidth="150"/>
+                                <TableColumn fx:id="tbcCapacidad" text="Capacidad" prefWidth="150"/>
+                            </columns>
+                        </TableView>
+
+                        <Button text="Eliminar" layoutX="100" layoutY="250" onAction="#onEliminarSalon"/>
+                        <Button text="Limpiar" layoutX="250" layoutY="250" onAction="#onLimpiar"/>
+                    </children>
+                </AnchorPane>
+
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

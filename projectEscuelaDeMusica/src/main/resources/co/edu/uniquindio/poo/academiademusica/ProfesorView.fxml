@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.academia.viewcontroller.ProfesorViewController">
+
+    <children>
+        <SplitPane orientation="VERTICAL" dividerPositions="0.50">
+
+            <items>
+                <!-- FORMULARIO -->
+                <AnchorPane>
+                    <children>
+                        <Pane layoutX="40" layoutY="20" prefWidth="420" prefHeight="250">
+                            <children>
+
+                                <Label layoutX="130" layoutY="10" text="Gestión Profesores">
+                                    <font><Font name="System Bold" size="20"/></font>
+                                </Label>
+
+                                <Label text="ID:" layoutX="40" layoutY="55"/>
+                                <TextField fx:id="txtIdProfesor" layoutX="150" layoutY="50"/>
+
+                                <Label text="Nombre:" layoutX="40" layoutY="90"/>
+                                <TextField fx:id="txtNombre" layoutX="150" layoutY="85"/>
+
+                                <Label text="Email:" layoutX="40" layoutY="125"/>
+                                <TextField fx:id="txtEmail" layoutX="150" layoutY="120"/>
+
+                                <Label text="Especialidad:" layoutX="40" layoutY="160"/>
+                                <TextField fx:id="txtEspecialidad" layoutX="150" layoutY="155"/>
+
+                                <Button text="Agregar" layoutX="60" layoutY="210" onAction="#onAgregarProfesor"/>
+                                <Button text="Actualizar" layoutX="180" layoutY="210" onAction="#onActualizarProfesor"/>
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
+
+                <!-- TABLA -->
+                <AnchorPane>
+                    <children>
+                        <TableView fx:id="tblProfesores" layoutX="15" layoutY="10" prefWidth="460" prefHeight="230">
+                            <columns>
+                                <TableColumn fx:id="tbcId" text="ID" prefWidth="80"/>
+                                <TableColumn fx:id="tbcNombre" text="Nombre" prefWidth="120"/>
+                                <TableColumn fx:id="tbcEmail" text="Email" prefWidth="150"/>
+                                <TableColumn fx:id="tbcEspecialidad" text="Especialidad" prefWidth="100"/>
+                            </columns>
+                        </TableView>
+
+                        <Button text="Eliminar" layoutX="100" layoutY="250" onAction="#onEliminarProfesor"/>
+                        <Button text="Limpiar" layoutX="250" layoutY="250" onAction="#onLimpiar"/>
+                    </children>
+                </AnchorPane>
+
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

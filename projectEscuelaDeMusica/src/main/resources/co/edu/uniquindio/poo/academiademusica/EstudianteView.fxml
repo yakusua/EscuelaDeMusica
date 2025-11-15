@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.academia.viewcontroller.EstudianteViewController">
+
+    <children>
+        <SplitPane orientation="VERTICAL" dividerPositions="0.50" prefHeight="600.0" prefWidth="500.0">
+            <items>
+
+                <!-- FORMULARIO -->
+                <AnchorPane>
+                    <children>
+                        <Pane layoutX="40" layoutY="20" prefWidth="420" prefHeight="260">
+                            <children>
+
+                                <Label layoutX="130" layoutY="10" text="Gestión Estudiantes">
+                                    <font><Font name="System Bold" size="20"/></font>
+                                </Label>
+
+                                <Label layoutX="40" layoutY="55" text="ID:">
+                                    <font><Font size="16"/></font>
+                                </Label>
+                                <TextField fx:id="txtIdEstudiante" layoutX="150" layoutY="50" prefWidth="220"/>
+
+                                <Label layoutX="40" layoutY="90" text="Nombre:">
+                                    <font><Font size="16"/></font>
+                                </Label>
+                                <TextField fx:id="txtNombre" layoutX="150" layoutY="85" prefWidth="220"/>
+
+                                <Label layoutX="40" layoutY="125" text="Email:">
+                                    <font><Font size="16"/></font>
+                                </Label>
+                                <TextField fx:id="txtEmail" layoutX="150" layoutY="120" prefWidth="220"/>
+
+                                <Label layoutX="40" layoutY="160" text="Edad:">
+                                    <font><Font size="16"/></font>
+                                </Label>
+                                <TextField fx:id="txtEdad" layoutX="150" layoutY="155" prefWidth="220"/>
+
+                                <Button text="Agregar" layoutX="60" layoutY="210" onAction="#onAgregarEstudiante"/>
+                                <Button text="Actualizar" layoutX="180" layoutY="210" onAction="#onActualizarEstudiante"/>
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
+
+                <!-- TABLA -->
+                <AnchorPane>
+                    <children>
+
+                        <TableView fx:id="tblEstudiantes" layoutX="15" layoutY="10" prefWidth="460" prefHeight="230">
+                            <columns>
+                                <TableColumn fx:id="tbcId" text="ID" prefWidth="80"/>
+                                <TableColumn fx:id="tbcNombre" text="Nombre" prefWidth="120"/>
+                                <TableColumn fx:id="tbcEmail" text="Email" prefWidth="150"/>
+                                <TableColumn fx:id="tbcEdad" text="Edad" prefWidth="80"/>
+                            </columns>
+                        </TableView>
+
+                        <Button text="Eliminar" layoutX="100" layoutY="250" onAction="#onEliminarEstudiante"/>
+                        <Button text="Limpiar" layoutX="250" layoutY="250" onAction="#onLimpiar"/>
+                    </children>
+                </AnchorPane>
+
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
