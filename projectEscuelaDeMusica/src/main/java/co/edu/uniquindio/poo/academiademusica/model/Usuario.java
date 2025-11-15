@@ -35,7 +35,7 @@ public abstract class Usuario implements IUsuario {
         this.nombre = nombre;
     }
 
-    //relacion con el implements (boceto)
+    //relación con el implements (boceto)
     @Override
     public void registrar() {
         System.out.println("Usuario registrado: " + nombre);
@@ -54,5 +54,14 @@ public abstract class Usuario implements IUsuario {
     @Override
     public void generarReporte() {
         System.out.println("Generando reporte para: " + nombre);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
+                ", rol='" + rol + '\'' +
+                '}';
     }
 }

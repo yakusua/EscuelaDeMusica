@@ -10,5 +10,5 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.UsuarioViewController"
             prefHeight="400.0" prefWidth="600.0">
-
+//hacer form del crud y los tipos de
 </AnchorPane>

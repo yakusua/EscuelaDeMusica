@@ -59,4 +59,15 @@ public class Curso {
     public void setInstrumento(Instrumento instrumento) {
         this.instrumento = instrumento;
     }
+
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "capacidad=" + capacidad +
+                ", instrumento=" + instrumento +
+                ", nivel=" + nivel +
+                ", curso=" + curso +
+                ", listClases=" + listClases +
+                '}';
+    }
 }
