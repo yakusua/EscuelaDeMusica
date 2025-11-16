@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.academiademusica.model;
+
 import co.edu.uniquindio.poo.academiademusica.model.enums.Instrumento;
 
 public class Profesor extends Usuario {
@@ -37,15 +38,17 @@ public class Profesor extends Usuario {
         this.especialidad = especialidad;
     }
 
-   //debe gestionar el horario
+    // debe gestionar el horario
     public void gestionarHorario() {
         System.out.println("Gestionando horario del profesor: " + nombre);
     }
-//debe registrar una asistencia
+
+    // debe registrar una asistencia
     public void registrarAsistencia(String estudiante) {
         System.out.println("Registrando asistencia del estudiante: " + estudiante + " por " + nombre);
     }
-//debe crear una clase
+
+    // debe crear una clase
     public void crearClase(String curso) {
         System.out.println("Creando clase de " + curso + " por profesor: " + nombre);
     }

@@ -20,15 +20,15 @@ public class EstudianteController {
         return academia.listarEstudiantes();
     }
 
-    public Estudiante buscarEstudiante(Estudiante estudiante) {
-        return academia.buscarEstudiante(estudiante);
+    public Estudiante buscarEstudiante(String idEstudiante) {
+        return academia.buscarEstudiante(idEstudiante);
     }
 
-    public boolean eliminarEstudiante(Estudiante estudiante) {
-        return academia.eliminarEstudiante(estudiante);
+    public boolean eliminarEstudiante(String idEstudiante) {
+        return academia.eliminarEstudiante(idEstudiante);
     }
 
-    public boolean actualizarEstudiante( Estudiante estudiante,Estudiante estudianteEditable) {
-        return academia.actualizarEstudiante(estudiante,estudianteEditable);
+    public boolean actualizarEstudiante(String id, Estudiante estudianteActualizado) {
+        return academia.actualizarEstudiante(id, estudianteActualizado);
     }
 }

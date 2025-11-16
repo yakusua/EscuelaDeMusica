@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo.academiademusica.viewController;
 
-
 import co.edu.uniquindio.poo.academiademusica.model.Curso;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -32,3 +31,4 @@ public class CursoViewController {
         System.out.println("Curso - Campos limpiados.");
     }
 }
+

@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.academiademusica;
 
-import co.edu.uniquindio.poo.academiademusica.model.Academia ;
+import co.edu.uniquindio.poo.academiademusica.model.Academia;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,19 +11,7 @@ public class App extends Application {
 
     public static Academia academia;
     private static Stage primaryStage;
-/*
-    @Override
-    public void start(Stage stage) {
-        primaryStage = stage;
-        openVentanaPrincipal(); // Seleccionar
-    }
 
-
-   public static void openVentanaPrincipal() {
-     openWindow("/co/edu/uniquindio/poo/segurcoljfx/ventanaPrincipal.fxml",
-              "Bienvenido a Segurcol");
- }
-*/
     public static void openCrudUsuario() {
         openWindow("co/edu/uniquindio/poo/academiademusica/CrudUsuario.fxml",
                 "Gestión de Empleados");
@@ -43,33 +31,7 @@ public class App extends Application {
         openWindow("co/edu/uniquindio/poo/academiademusica/EstudianteView.fxml",
                 "Gestión de Estudiantes");
     }
-/*
-    public static void openCrudServicios() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/crudServicio.fxml",
-                "Gestión de Servicios");
-    }
 
-    public static void openCrudCustodiaFija() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/servicios/crudCustodiaFija.fxml",
-                "Gestión de Custodia Fija");
-    }
-
-    public static void openCrudPatrullajeMovil() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/servicios/crudPatrullajeMovil.fxml",
-                "Gestión de Patrullaje Móvil");
-    }
-
-    public static void openCrudEquipos() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/crudEquipos.fxml",
-                "Gestión de Equipos");
-    }
-
-    public static void openCrudAgenda() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/crudAgenda.fxml",
-                "Gestión de Agenda y Novedades");
-    }
-*/
-    //abre cualquier  fxml
     private static void openWindow(String fxmlPath, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource(fxmlPath));
@@ -92,13 +54,14 @@ public class App extends Application {
         }
     }
 
-    public static void main(String[] args) {
-        academia = new Academia("Music AXM","A001","Uniquindio");
-        launch(args);
+    @Override
+    public void start(Stage stage) {
+        primaryStage = stage;
+        openCrudUsuario();
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        
+    public static void main(String[] args) {
+        academia = new Academia("Music AXM", "A001", "Uniquindio");
+        launch(args);
     }
 }

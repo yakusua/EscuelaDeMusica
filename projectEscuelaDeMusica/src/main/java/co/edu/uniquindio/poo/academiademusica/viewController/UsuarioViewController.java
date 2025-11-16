@@ -8,23 +8,26 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class UsuarioViewController {
-    //ventana de admins
+
+    // ventana admins
     @FXML
-        private void abrirAdminView() {
-        abrirVentana("co/edu/uniquindio/poo/academiademusica/AdminView.fxml", "Gestión de Administradores");
-    }
-    //ventana de profesores
-    @FXML
-    private void abrirProfesorView() {
-        abrirVentana("co/edu/uniquindio/poo/academiademusica/ProfesorView.fxml", "Gestión de Profesores");
-    }
-    //ventana de estudiantes
-    @FXML
-    private void abrirEstudianteView() {
-        abrirVentana("co/edu/uniquindio/poo/academiademusica/EstudianteView.fxml", "Gestión de Estudiantes");
+    private void abrirAdminView() {
+        abrirVentana("co/edu/uniquindio/poo/academiademusica/Usuarios/AdminView.fxml", "Gestión de Administradores");
     }
 
-    //buscado para abrir cualquiera
+    // ventana profesores
+    @FXML
+    private void abrirProfesorView() {
+        abrirVentana("co/edu/uniquindio/poo/academiademusica/Usuarios/ProfesorView.fxml", "Gestión de Profesores");
+    }
+
+    // ventana estudiantes
+    @FXML
+    private void abrirEstudianteView() {
+        abrirVentana("co/edu/uniquindio/poo/academiademusica/Usuarios/EstudianteView.fxml", "Gestión de Estudiantes");
+    }
+
+    // método genérico para abrir cualquier ventana
     private void abrirVentana(String rutaFXML, String titulo) {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource(rutaFXML));

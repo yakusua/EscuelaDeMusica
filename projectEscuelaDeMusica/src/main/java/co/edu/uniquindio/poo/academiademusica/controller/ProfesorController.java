@@ -21,15 +21,16 @@ public class ProfesorController {
         return academia.listarProfesores();
     }
 
-    public Profesor buscarProfesor(Profesor profesor) {
-        return academia.buscarProfesor(profesor);
+    public Profesor buscarProfesor(String idProfesor) {
+        return academia.buscarProfesor(idProfesor);
     }
 
-    public boolean eliminarProfesor(Profesor profesor) {
-        return academia.eliminarProfesor(profesor);
+    public boolean eliminarProfesor(String idProfesor) {
+        return academia.eliminarProfesor(idProfesor);
     }
 
-    public boolean actualizarProfesor(Profesor profesor,Profesor profesorEditable) {
-        return academia.actualizarProfesor(profesor,profesorEditable);
+    public boolean actualizarProfesor(String id, Profesor profesorActualizado) {
+        return academia.actualizarProfesor(id, profesorActualizado);
     }
 }
+

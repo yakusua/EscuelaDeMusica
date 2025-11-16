@@ -21,15 +21,16 @@ public class SalonController {
         return academia.listarSalones();
     }
 
-    public Salon buscarSalon(Salon salon) {
-        return academia.buscarSalon(salon);
+    public Salon buscarSalon(String nombre) {
+        return academia.buscarSalon(nombre);
     }
 
-    public boolean eliminarSalon(Salon salon) {
-        return academia.eliminarSalon(salon);
+    public boolean eliminarSalon(String nombre) {
+        return academia.eliminarSalon(nombre);
     }
 
-    public boolean actualizarSalon(Salon salon,Salon salonEditable) {
-        return academia.actualizarSalon(salon,salonEditable);
+    public boolean actualizarSalon(String nombre, Salon salonActualizado) {
+        return academia.actualizarSalon(nombre, salonActualizado);
     }
 }
+

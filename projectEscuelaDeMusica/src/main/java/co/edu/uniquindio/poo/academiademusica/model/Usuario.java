@@ -35,6 +35,8 @@ public abstract class Usuario implements IUsuario {
         this.rol = rol;
     }
 
+    //metodos del interface
+
     @Override
     public void registrar() {
         System.out.println(rol + " registrado: " + nombre);
@@ -47,10 +49,9 @@ public abstract class Usuario implements IUsuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
+        return rol + "{" +
                 "nombre='" + nombre + '\'' +
                 ", email='" + email + '\'' +
-                ", rol='" + rol + '\'' +
                 '}';
     }
 }

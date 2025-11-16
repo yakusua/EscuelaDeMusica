@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.AdminViewController"
+            prefWidth="750" prefHeight="600">
+
+    <VBox spacing="12" prefWidth="750" prefHeight="600" alignment="TOP_CENTER">
+        <padding>
+            <Insets top="15" right="20" bottom="15" left="20"/>
+        </padding>
+
+
+        <Label text="Gestión Administrador Académico"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+        <!-- Form -->
+        <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="130"/>
+                <ColumnConstraints minWidth="220" hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <!-- nombre -->
+            <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtNombre" promptText="Nombre completo"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <!-- email -->
+            <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtEmail" promptText="ejemplo@correo.com"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <!-- rol -->
+            <Label text="Rol:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="cmbRol" prefWidth="220"
+                      GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <!-- id -->
+            <Label text="ID Administrador:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtIdAdministrador" promptText="Ej: ADM-001"
+                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- botones add colores -->
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="btnAgregar" text="Agregar" onAction="#onAgregar"
+                    style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnActualizar" text="Actualizar" onAction="#onActualizar"
+                    style="-fx-background-color: #f1c40f; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnLimpiar" text="Limpiar" onAction="#onLimpiar"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+        </HBox>
+
+        <TableView fx:id="tblAdmins" prefHeight="260">
+            <columns>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="160"/>
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="180"/>
+                <TableColumn fx:id="colRol" text="Rol" prefWidth="100"/>
+                <TableColumn fx:id="colIdAdministrador" text="ID Administrador" prefWidth="140"/>
+            </columns>
+        </TableView>
+
+    </VBox>
+</AnchorPane>

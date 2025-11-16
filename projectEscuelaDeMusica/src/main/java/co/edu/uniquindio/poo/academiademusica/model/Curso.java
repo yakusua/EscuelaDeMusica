@@ -59,4 +59,8 @@ public class Curso {
                 ", listClases=" + listClases +
                 '}';
     }
+
+    public Object getIdCurso() {
+        return null;
+    }
 }
