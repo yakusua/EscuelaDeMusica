@@ -8,21 +8,20 @@ public class Academia {
     private String nombre;
     private String nit;
     private String ubicacion;
-
-    //de relación
     private List<Estudiante> listEstudiantes;
     private List<Profesor> listProfesores;
     private List<Curso> listCursos;
     private List<Salon> listSalones;
+    private List<AdministradorAcademico> listAdministradores;
 
     public Academia(String nombre, String nit, String ubicacion) {
         this.nombre = nombre;
         this.nit = nit;
         this.ubicacion = ubicacion;
-        this.listEstudiantes = new ArrayList<>();
-        this.listProfesores = new ArrayList<>();
-        this.listCursos = new ArrayList<>();
-        this.listSalones = new ArrayList<>();
+        this.listEstudiantes = new LinkedList<>();
+        this.listProfesores = new LinkedList<>();
+        this.listCursos = new LinkedList<>();
+        this.listSalones = new LinkedList<>();
     }
 
     public List<Salon> getListSalones() {
@@ -210,5 +209,34 @@ public class Academia {
 
     public boolean eliminarSalon(String nombre) {
         return listSalones.removeIf(s -> s.getNombre().equalsIgnoreCase(nombre));
+    }
+
+    public boolean agregarAdministrador(AdministradorAcademico administrador) {
+        if (administrador == null) return false;
+        return listAdministradores.add(administrador);
+    }
+
+    public AdministradorAcademico buscarAdministrador(String idAdministrador) {
+        for (AdministradorAcademico a : listAdministradores) {
+            if (a.getIdAdministrador().equals(idAdministrador)) {
+                return a;
+            }
+        }
+        return null;
+    }
+    public List<AdministradorAcademico> listarAdministradores() {
+        return new ArrayList<>(listAdministradores);
+    }
+    public boolean actualizarAdministrador(String id, AdministradorAcademico actualizado) {
+        for (int i = 0; i < listAdministradores.size(); i++) {
+            if (listAdministradores.get(i).getIdAdministrador().equals(id)) {
+                listAdministradores.set(i, actualizado);
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean eliminarAdministrador(String idAdministrador) {
+        return listAdministradores.removeIf(a -> a.getIdAdministrador().equals(idAdministrador));
     }
 }

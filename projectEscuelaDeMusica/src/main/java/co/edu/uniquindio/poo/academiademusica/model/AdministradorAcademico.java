@@ -20,7 +20,6 @@ public class AdministradorAcademico extends Usuario {
     public void modificarUsuario(Usuario usuario, String nuevoNombre, String nuevoEmail) {
         usuario.setNombre(nuevoNombre);
         usuario.setEmail(nuevoEmail);
-        System.out.println("Usuario modificado por administrador: " + usuario.getNombre());
     }
 
     @Override

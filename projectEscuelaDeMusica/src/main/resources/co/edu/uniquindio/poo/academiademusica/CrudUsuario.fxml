@@ -18,7 +18,6 @@
         <Label text="Seleccione el tipo de usuario que desea gestionar:"/>
 
         <HBox spacing="15" alignment="CENTER">
-            <!-- botones add colores -->
             <Button text="Admins" onAction="#abrirAdminView" style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
             <Button text="Profesores" onAction="#abrirProfesorView" style="-fx-background-color: #9b59b6; -fx-text-fill: white;"/>
             <Button text="Estudiantes" onAction="#abrirEstudianteView" style="-fx-background-color: #1abc9c; -fx-text-fill: white;"/>

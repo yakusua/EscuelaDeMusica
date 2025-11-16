@@ -9,14 +9,12 @@ public class Curso {
     private int capacidad;
     private Instrumento instrumento;
     private Nivel nivel;
-    private Curso curso;
     private List<Clase> listClases;
 
-    public Curso(int capacidad, Instrumento instrumento, Nivel nivel,  Curso curso) {
+    public Curso(int capacidad, Instrumento instrumento, Nivel nivel) {
         this.capacidad = capacidad;
         this.instrumento = instrumento;
         this.nivel = nivel;
-        this.curso = curso;
         this.listClases = new ArrayList<>();
     }
 
@@ -34,14 +32,6 @@ public class Curso {
 
     public void setListClases(List<Clase> listClases) {
         this.listClases = listClases;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
     }
 
     public Nivel getNivel() {
@@ -66,7 +56,6 @@ public class Curso {
                 "capacidad=" + capacidad +
                 ", instrumento=" + instrumento +
                 ", nivel=" + nivel +
-                ", curso=" + curso +
                 ", listClases=" + listClases +
                 '}';
     }

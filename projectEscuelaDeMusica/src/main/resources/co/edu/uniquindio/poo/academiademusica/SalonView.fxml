@@ -7,7 +7,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="500.0"
             xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.academia.viewcontroller.SalonViewController">
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.SalonViewController">
 
     <children>
         <SplitPane orientation="VERTICAL" dividerPositions="0.50">
@@ -30,15 +30,14 @@
                                 <Label text="Capacidad:" layoutX="40" layoutY="90"/>
                                 <TextField fx:id="txtCapacidadSalon" layoutX="150" layoutY="85"/>
 
-                                <Button text="Agregar" layoutX="60" layoutY="150" onAction="#onAgregarSalon"/>
-                                <Button text="Actualizar" layoutX="180" layoutY="150" onAction="#onActualizarSalon"/>
+                                <Button text="Agregar" layoutX="60" layoutY="150" onAction="#onAgregar"/>
+                                <Button text="Actualizar" layoutX="180" layoutY="150" onAction="#onActualizar"/>
 
                             </children>
                         </Pane>
                     </children>
                 </AnchorPane>
 
-                <!-- TABLE -->
                 <AnchorPane>
                     <children>
                         <TableView fx:id="tblSalones" layoutX="15" layoutY="10" prefWidth="460" prefHeight="230">
@@ -48,11 +47,10 @@
                             </columns>
                         </TableView>
 
-                        <Button text="Eliminar" layoutX="100" layoutY="250" onAction="#onEliminarSalon"/>
+                        <Button text="Eliminar" layoutX="100" layoutY="250" onAction="#onEliminar"/>
                         <Button text="Limpiar" layoutX="250" layoutY="250" onAction="#onLimpiar"/>
                     </children>
                 </AnchorPane>
-
             </items>
         </SplitPane>
     </children>
