@@ -21,15 +21,15 @@ public class CursoController {
         return academia.listarCursos();
     }
 
-    public Curso buscarCurso(int capacidad) {
-        return academia.buscarCurso(capacidad);
+    public Curso buscarCurso(Curso curso) {
+        return academia.buscarCurso(curso);
     }
 
-    public boolean eliminarCurso(int capacidad) {
-        return academia.eliminarCurso(capacidad);
+    public boolean eliminarCurso(Curso curso) {
+        return academia.eliminarCurso(curso);
     }
 
-    public boolean actualizarCurso(int capacidad, Curso cursoActualizado) {
-        return academia.actualizarCurso(capacidad, cursoActualizado);
+    public boolean actualizarCurso(Curso curso,Curso cursoEditable) {
+        return academia.actualizarCurso(curso,cursoEditable);
     }
 }

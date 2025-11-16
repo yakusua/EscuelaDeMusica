@@ -1,57 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0"
-            xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.SalonViewController">
-
+<AnchorPane prefHeight="500.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.SalonViewController">
     <children>
-        <SplitPane orientation="VERTICAL" dividerPositions="0.50">
+        <Pane layoutX="10.0" layoutY="10.0" prefHeight="220.0" prefWidth="460.0" style="-fx-border-color: #cccccc; -fx-border-radius: 5;">
+            <children>
+                <Label layoutX="150.0" layoutY="15.0" text="Gestión de Salones">
+                    <font><Font name="System Bold" size="18.0" /></font>
+                </Label>
 
-            <items>
+                <Label layoutX="30.0" layoutY="50.0" text="Nombre:"><font><Font size="14.0" /></font></Label>
+                <TextField fx:id="txtNombre" layoutX="180.0" layoutY="46.0" prefWidth="250.0" promptText="Nombre del Salón (Ej: A-101)" />
 
-                <!-- FORM -->
-                <AnchorPane>
-                    <children>
-                        <Pane layoutX="40" layoutY="20" prefWidth="420" prefHeight="230">
-                            <children>
+                <Label layoutX="30.0" layoutY="85.0" text="Capacidad:"><font><Font size="14.0" /></font></Label>
+                <TextField fx:id="txtCapacidad" layoutX="180.0" layoutY="81.0" prefWidth="100.0" promptText="Máx. Personas" />
 
-                                <Label layoutX="160" layoutY="10" text="Gestión Salones">
-                                    <font><Font name="System Bold" size="20"/></font>
-                                </Label>
+                <Label layoutX="30.0" layoutY="120.0" text="ID Administrador:"><font><Font size="14.0" /></font></Label>
+                <TextField fx:id="txtIdAdministrador" layoutX="180.0" layoutY="116.0" prefWidth="250.0" promptText="ID del Administrador responsable" />
 
-                                <Label text="Nombre:" layoutX="40" layoutY="55"/>
-                                <TextField fx:id="txtNombreSalon" layoutX="150" layoutY="50"/>
+                <Button fx:id="btnCrear" layoutX="60.0" layoutY="180.0" mnemonicParsing="false" onAction="#onCrear" prefWidth="100.0" text="Crear" />
+                <Button fx:id="btnActualizar" layoutX="200.0" layoutY="180.0" mnemonicParsing="false" onAction="#onActualizar" prefWidth="100.0" text="Actualizar" />
+                <Button fx:id="btnLimpiar" layoutX="340.0" layoutY="180.0" mnemonicParsing="false" onAction="#onLimpiar" prefWidth="100.0" text="Limpiar" />
+            </children>
+        </Pane>
 
-                                <Label text="Capacidad:" layoutX="40" layoutY="90"/>
-                                <TextField fx:id="txtCapacidadSalon" layoutX="150" layoutY="85"/>
+        <TableView fx:id="tblSalones" layoutX="10.0" layoutY="240.0" prefHeight="180.0" prefWidth="460.0">
+            <columns>
+                <TableColumn fx:id="tbcNombre" prefWidth="150.0" text="Nombre Salón" />
+                <TableColumn fx:id="tbcCapacidad" prefWidth="100.0" text="Capacidad" />
+                <TableColumn fx:id="tbcAdministrador" prefWidth="200.0" text="Administrador (ID)" />
+            </columns>
+            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+        </TableView>
 
-                                <Button text="Agregar" layoutX="60" layoutY="150" onAction="#onAgregar"/>
-                                <Button text="Actualizar" layoutX="180" layoutY="150" onAction="#onActualizar"/>
-
-                            </children>
-                        </Pane>
-                    </children>
-                </AnchorPane>
-
-                <AnchorPane>
-                    <children>
-                        <TableView fx:id="tblSalones" layoutX="15" layoutY="10" prefWidth="460" prefHeight="230">
-                            <columns>
-                                <TableColumn fx:id="tbcNombre" text="Nombre" prefWidth="150"/>
-                                <TableColumn fx:id="tbcCapacidad" text="Capacidad" prefWidth="150"/>
-                            </columns>
-                        </TableView>
-
-                        <Button text="Eliminar" layoutX="100" layoutY="250" onAction="#onEliminar"/>
-                        <Button text="Limpiar" layoutX="250" layoutY="250" onAction="#onLimpiar"/>
-                    </children>
-                </AnchorPane>
-            </items>
-        </SplitPane>
+        <Button fx:id="btnEliminar" layoutX="190.0" layoutY="440.0" mnemonicParsing="false" onAction="#onEliminar" prefWidth="100.0" text="Eliminar" />
     </children>
 </AnchorPane>

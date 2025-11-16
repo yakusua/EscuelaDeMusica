@@ -1,5 +1,4 @@
 package co.edu.uniquindio.poo.academiademusica.model;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,11 +7,12 @@ public class Academia {
     private String nombre;
     private String nit;
     private String ubicacion;
-    private List<Estudiante> listEstudiantes;
-    private List<Profesor> listProfesores;
-    private List<Curso> listCursos;
-    private List<Salon> listSalones;
-    private List<AdministradorAcademico> listAdministradores;
+    private LinkedList<Estudiante> listEstudiantes;
+    private LinkedList<Profesor> listProfesores;
+    private LinkedList<Curso> listCursos;
+    private LinkedList<Salon> listSalones;
+    private LinkedList<AdministradorAcademico> listAdministradores;
+    private LinkedList<ReporteProgreso> listReportes;
 
     public Academia(String nombre, String nit, String ubicacion) {
         this.nombre = nombre;
@@ -22,62 +22,8 @@ public class Academia {
         this.listProfesores = new LinkedList<>();
         this.listCursos = new LinkedList<>();
         this.listSalones = new LinkedList<>();
-    }
-
-    public List<Salon> getListSalones() {
-        return listSalones;
-    }
-
-    public void setListSalones(List<Salon> listSalones) {
-        this.listSalones = listSalones;
-    }
-
-    public List<Curso> getListCursos() {
-        return listCursos;
-    }
-
-    public void setListCursos(List<Curso> listCursos) {
-        this.listCursos = listCursos;
-    }
-
-    public List<Profesor> getListProfesores() {
-        return listProfesores;
-    }
-
-    public void setListProfesores(List<Profesor> listProfesores) {
-        this.listProfesores = listProfesores;
-    }
-
-    public List<Estudiante> getListEstudiantes() {
-        return listEstudiantes;
-    }
-
-    public void setListEstudiantes(List<Estudiante> listEstudiantes) {
-        this.listEstudiantes = listEstudiantes;
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public String getNit() {
-        return nit;
-    }
-
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.listAdministradores = new LinkedList<>();
+        this.listReportes = new LinkedList<>();
     }
 
     public boolean agregarEstudiante(Estudiante estudiante) {
@@ -85,9 +31,10 @@ public class Academia {
         return listEstudiantes.add(estudiante);
     }
 
-    public Estudiante buscarEstudiante(String idEstudiante) {
+    public Estudiante buscarEstudiante(Estudiante estudiante) {
+        if (estudiante == null) return null;
         for (Estudiante e : listEstudiantes) {
-            if (e.getIdEstudiante().equals(idEstudiante)) {
+            if (e.equals(estudiante)) {
                 return e;
             }
         }
@@ -98,9 +45,10 @@ public class Academia {
         return new ArrayList<>(listEstudiantes);
     }
 
-    public boolean actualizarEstudiante(String id, Estudiante actualizado) {
+    public boolean actualizarEstudiante(Estudiante original, Estudiante actualizado) {
+        if (original == null || actualizado == null) return false;
         for (int i = 0; i < listEstudiantes.size(); i++) {
-            if (listEstudiantes.get(i).getIdEstudiante().equals(id)) {
+            if (listEstudiantes.get(i).equals(original)) {
                 listEstudiantes.set(i, actualizado);
                 return true;
             }
@@ -108,19 +56,20 @@ public class Academia {
         return false;
     }
 
-    public boolean eliminarEstudiante(String idEstudiante) {
-        return listEstudiantes.removeIf(e -> e.getIdEstudiante().equals(idEstudiante));
+    public boolean eliminarEstudiante(Estudiante estudiante) {
+        if (estudiante == null) return false;
+        return listEstudiantes.remove(estudiante);
     }
-
 
     public boolean agregarProfesor(Profesor profesor) {
         if (profesor == null) return false;
         return listProfesores.add(profesor);
     }
 
-    public Profesor buscarProfesor(String idProfesor) {
+    public Profesor buscarProfesor(Profesor profesor) {
+        if (profesor == null) return null;
         for (Profesor p : listProfesores) {
-            if (p.getIdProfesor().equals(idProfesor)) {
+            if (p.equals(profesor)) {
                 return p;
             }
         }
@@ -131,9 +80,10 @@ public class Academia {
         return new ArrayList<>(listProfesores);
     }
 
-    public boolean actualizarProfesor(String id, Profesor actualizado) {
+    public boolean actualizarProfesor(Profesor original, Profesor actualizado) {
+        if (original == null || actualizado == null) return false;
         for (int i = 0; i < listProfesores.size(); i++) {
-            if (listProfesores.get(i).getIdProfesor().equals(id)) {
+            if (listProfesores.get(i).equals(original)) {
                 listProfesores.set(i, actualizado);
                 return true;
             }
@@ -141,19 +91,20 @@ public class Academia {
         return false;
     }
 
-    public boolean eliminarProfesor(String idProfesor) {
-        return listProfesores.removeIf(p -> p.getIdProfesor().equals(idProfesor));
+    public boolean eliminarProfesor(Profesor profesor) {
+        if (profesor == null) return false;
+        return listProfesores.remove(profesor);
     }
-
 
     public boolean agregarCurso(Curso curso) {
         if (curso == null) return false;
         return listCursos.add(curso);
     }
 
-    public Curso buscarCurso(int capacidad) {
+    public Curso buscarCurso(Curso curso) {
+        if (curso == null) return null;
         for (Curso c : listCursos) {
-            if (c.getCapacidad() == capacidad) {
+            if (c.equals(curso)) {
                 return c;
             }
         }
@@ -164,9 +115,10 @@ public class Academia {
         return new ArrayList<>(listCursos);
     }
 
-    public boolean actualizarCurso(int capacidad, Curso actualizado) {
+    public boolean actualizarCurso(Curso original, Curso actualizado) {
+        if (original == null || actualizado == null) return false;
         for (int i = 0; i < listCursos.size(); i++) {
-            if (listCursos.get(i).getCapacidad() == capacidad) {
+            if (listCursos.get(i).equals(original)) {
                 listCursos.set(i, actualizado);
                 return true;
             }
@@ -174,19 +126,20 @@ public class Academia {
         return false;
     }
 
-    public boolean eliminarCurso(int capacidad) {
-        return listCursos.removeIf(c -> c.getCapacidad() == capacidad);
+    public boolean eliminarCurso(Curso curso) {
+        if (curso == null) return false;
+        return listCursos.remove(curso);
     }
-
 
     public boolean agregarSalon(Salon salon) {
         if (salon == null) return false;
         return listSalones.add(salon);
     }
 
-    public Salon buscarSalon(String nombre) {
+    public Salon buscarSalon(Salon salon) {
+        if (salon == null) return null;
         for (Salon s : listSalones) {
-            if (s.getNombre().equalsIgnoreCase(nombre)) {
+            if (s.equals(salon)) {
                 return s;
             }
         }
@@ -196,10 +149,10 @@ public class Academia {
     public List<Salon> listarSalones() {
         return new ArrayList<>(listSalones);
     }
-
-    public boolean actualizarSalon(String nombre, Salon actualizado) {
+    public boolean actualizarSalon(Salon original, Salon actualizado) {
+        if (original == null || actualizado == null) return false;
         for (int i = 0; i < listSalones.size(); i++) {
-            if (listSalones.get(i).getNombre().equalsIgnoreCase(nombre)) {
+            if (listSalones.get(i).equals(original)) {
                 listSalones.set(i, actualizado);
                 return true;
             }
@@ -207,8 +160,9 @@ public class Academia {
         return false;
     }
 
-    public boolean eliminarSalon(String nombre) {
-        return listSalones.removeIf(s -> s.getNombre().equalsIgnoreCase(nombre));
+    public boolean eliminarSalon(Salon salon) {
+        if (salon == null) return false;
+        return listSalones.remove(salon);
     }
 
     public boolean agregarAdministrador(AdministradorAcademico administrador) {
@@ -216,27 +170,67 @@ public class Academia {
         return listAdministradores.add(administrador);
     }
 
-    public AdministradorAcademico buscarAdministrador(String idAdministrador) {
+    public AdministradorAcademico buscarAdministrador(AdministradorAcademico administrador) {
+        if (administrador == null) return null;
         for (AdministradorAcademico a : listAdministradores) {
-            if (a.getIdAdministrador().equals(idAdministrador)) {
+            if (a.equals(administrador)) {
                 return a;
             }
         }
         return null;
     }
+
     public List<AdministradorAcademico> listarAdministradores() {
         return new ArrayList<>(listAdministradores);
     }
-    public boolean actualizarAdministrador(String id, AdministradorAcademico actualizado) {
+
+    public boolean actualizarAdministrador(AdministradorAcademico original, AdministradorAcademico actualizado) {
+        if (original == null || actualizado == null) return false;
         for (int i = 0; i < listAdministradores.size(); i++) {
-            if (listAdministradores.get(i).getIdAdministrador().equals(id)) {
+            if (listAdministradores.get(i).equals(original)) {
                 listAdministradores.set(i, actualizado);
                 return true;
             }
         }
         return false;
     }
-    public boolean eliminarAdministrador(String idAdministrador) {
-        return listAdministradores.removeIf(a -> a.getIdAdministrador().equals(idAdministrador));
+
+    public boolean eliminarAdministrador(AdministradorAcademico administrador) {
+        if (administrador == null) return false;
+        return listAdministradores.remove(administrador);
+    }
+
+    public boolean agregarReporte(ReporteProgreso reporte) {
+        if (reporte == null) return false;
+        return listReportes.add(reporte);
+    }
+
+    public ReporteProgreso buscarReporte(ReporteProgreso reporte) {
+        if (reporte == null) return null;
+        for (ReporteProgreso r : listReportes) {
+            if (r.equals(reporte)) {
+                return r;
+            }
+        }
+        return null;
+    }
+
+    public List<ReporteProgreso> listarReportes() {
+        return new ArrayList<>(listReportes);
+    }
+    public boolean actualizarReporte(ReporteProgreso original, ReporteProgreso actualizado) {
+        if (original == null || actualizado == null) return false;
+        for (int i = 0; i < listReportes.size(); i++) {
+            if (listReportes.get(i).equals(original)) {
+                listReportes.set(i, actualizado);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarReporte(ReporteProgreso reporte) {
+        if (reporte == null) return false;
+        return listReportes.remove(reporte);
     }
 }
