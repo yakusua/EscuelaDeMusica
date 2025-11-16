@@ -3,8 +3,8 @@ package co.edu.uniquindio.poo.academiademusica.model;
 public class AdministradorAcademico extends Usuario {
     private String idAdministrador;
 
-    public AdministradorAcademico(String nombre, String email, String idAdministrador) {
-        super(nombre, email, "Administrador");
+    public AdministradorAcademico(String nombre, String email, String rol, String idAdministrador) {
+        super(nombre, email, rol);
         this.idAdministrador = idAdministrador;
     }
 

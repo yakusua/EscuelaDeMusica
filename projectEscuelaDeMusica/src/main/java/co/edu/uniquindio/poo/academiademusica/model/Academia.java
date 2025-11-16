@@ -174,7 +174,7 @@ public class Academia {
 
     public AdministradorAcademico buscarAdministrador(String id) {
         for (AdministradorAcademico a : listAdministradores) {
-            if (a.getId().equals(id)) {
+            if (a.getIdAdministrador().equals(id)) {
                 return a;
             }
         }
@@ -187,7 +187,7 @@ public class Academia {
 
     public boolean actualizarAdministrador(String id, AdministradorAcademico actualizado) {
         for (int i = 0; i < listAdministradores.size(); i++) {
-            if (listAdministradores.get(i).getId().equals(id)) {
+            if (listAdministradores.get(i).getIdAdministrador().equals(id)) {
                 listAdministradores.set(i, actualizado);
                 return true;
             }
@@ -196,7 +196,7 @@ public class Academia {
     }
 
     public boolean eliminarAdministrador(String id) {
-        return listAdministradores.removeIf(a -> a.getId().equals(id));
+        return listAdministradores.removeIf(a -> a.getIdAdministrador().equals(id));
     }
 
     // ---------------- REPORTES ----------------

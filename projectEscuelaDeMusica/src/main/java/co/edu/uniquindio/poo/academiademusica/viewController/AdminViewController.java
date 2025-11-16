@@ -3,7 +3,13 @@ import co.edu.uniquindio.poo.academiademusica.model.AdministradorAcademico;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class AdminViewController {
 
@@ -24,6 +30,26 @@ public class AdminViewController {
             FXCollections.observableArrayList();
 
     @FXML
+    public void volverAlMenuPrincipal() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/academiademusica/VentanaPrincipal.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) txtNombre.getScene().getWindow();
+
+            Scene scene = new Scene(root, 320, 420);
+            stage.setScene(scene);
+            stage.setTitle("Menú Principal");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("No se pudo regresar al menú principal: " + e.getMessage());
+        }
+    }
+
+
+
+    @FXML
     public void initialize() {
         configurarTabla();
         cargarRoles();
@@ -42,9 +68,19 @@ public class AdminViewController {
     private void cargarRoles() {
         cmbRol.getItems().addAll(
                 "Administrador Académico",
-                "Coordinador",
-                "Director Académico"
+                "Profesor",
+                "Estudiante"
         );
+//doble verificación, abrir ventana corrrecta y sleccionar Rol correcto
+        cmbRol.valueProperty().addListener((obs, viejo, nuevo) -> {
+            if (nuevo != null && !nuevo.equals("Administrador Académico")) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText(null);
+                alert.setContentText("El rol seleccionado no puede ser : " + nuevo);
+                alert.showAndWait();
+
+            }
+        });
     }
 
     private void manejarSeleccionTabla() {
@@ -113,14 +149,16 @@ public class AdminViewController {
         String nombre = txtNombre.getText().trim();
         String email = txtEmail.getText().trim();
         String rol = cmbRol.getValue();
+        String idAdmin = txtIdAdministrador.getText().trim(); // <- aquí
 
-        if (nombre.isEmpty() || email.isEmpty() || rol == null) {
+        if (nombre.isEmpty() || email.isEmpty() || rol == null || idAdmin.isEmpty()) {
             mostrarAlerta("Todos los campos son obligatorios.");
             return null;
         }
 
-        return new AdministradorAcademico(nombre, email, rol);
+        return new AdministradorAcademico(nombre, email, rol, idAdmin); // <- usamos idAdmin
     }
+
 
     private void limpiarCampos() {
         txtNombre.clear();

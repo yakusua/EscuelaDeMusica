@@ -23,14 +23,14 @@ public class AdministradorAcademicoController {
     }
 
     public AdministradorAcademico buscarAdministrador(AdministradorAcademico administrador) {
-        return academia.buscarAdministrador(administrador);
+        return academia.buscarAdministrador(String.valueOf(administrador));
     }
 
     public boolean actualizarAdministrador(AdministradorAcademico original, AdministradorAcademico actualizado) {
-        return academia.actualizarAdministrador(original, actualizado);
+        return academia.actualizarAdministrador(String.valueOf(original), actualizado);
     }
 
     public boolean eliminarAdministrador(AdministradorAcademico administrador) {
-        return academia.eliminarAdministrador(administrador);
+        return academia.eliminarAdministrador(String.valueOf(administrador));
     }
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.VentanaPrincipalViewController"
+            prefWidth="320.0" prefHeight="420.0">
+
+    <VBox alignment="CENTER" spacing="20" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
+          AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+        <Label text="Academia de Música UQ"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+        <Label text="Seleccione un módulo:"
+               style="-fx-font-size: 14px; -fx-text-fill: #555;"/>
+
+        <VBox spacing="15" alignment="CENTER">
+            <!--botones add colores -->
+
+            <Button fx:id="btnUsuarios" text="Gestión de Usuarios"
+                    onAction="#abrirUsuarios"
+                    prefWidth="200"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnCursos" text="Cursos"
+                    onAction="#abrirCursos"
+                    prefWidth="200"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnClases" text="Clases"
+                    onAction="#abrirClases"
+                    prefWidth="200"
+                    style="-fx-background-color: #9b59b6; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnSalones" text="Salones"
+                    onAction="#abrirSalones"
+                    prefWidth="200"
+                    style="-fx-background-color: #e67e22; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnReportes" text="Reportes"
+                    onAction="#abrirReportes"
+                    prefWidth="200"
+                    style="-fx-background-color: #c0392b; -fx-text-fill: white;"/>
+        </VBox>
+
+    </VBox>
+</AnchorPane>
