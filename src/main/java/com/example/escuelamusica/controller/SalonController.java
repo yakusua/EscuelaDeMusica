@@ -5,7 +5,7 @@ import com.example.escuelamusica.model.Salon;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SalonController {
+public class    SalonController {
     private List<Salon> salones = new ArrayList<>();
 
     public void crear(Salon a) {

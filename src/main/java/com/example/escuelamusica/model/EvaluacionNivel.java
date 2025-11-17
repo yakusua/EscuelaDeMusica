@@ -70,7 +70,7 @@ public class EvaluacionNivel {
         return "Evaluacion{" +
                 "id='" + idEvaluacionNivel + '\'' +
                 ", estudiante=" + estudiante.getNombre() +
-                ", curso=" + curso.getCurso() +
+                ", curso=" + curso.getIdCurso() +
                 ", nota=" + nivel +
                 ", comentarios='" + comentarios + '\'' +
                 ", fecha='" + fecha + '\'' +

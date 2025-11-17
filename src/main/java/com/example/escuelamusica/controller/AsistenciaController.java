@@ -1,6 +1,8 @@
 package com.example.escuelamusica.controller;
 
 import com.example.escuelamusica.model.Asistencia;
+import com.example.escuelamusica.model.Clase;
+import com.example.escuelamusica.model.Estudiante;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,15 +25,30 @@ public class AsistenciaController {
         return null;
     }
 
-    public void actualizar(Asistencia actualizado) {
-        for (int i = 0; i < asistencias.size(); i++) {
-            if (asistencias.get(i).getIdAsistencia().equals(actualizado.getIdAsistencia())) {
-                asistencias.set(i, actualizado);
-            }
-        }
-    }
 
     public void eliminar(String id) {
         asistencias.removeIf(a -> a.getIdAsistencia().equals(id));
+    }
+
+    public List<Asistencia> obtenerAsistenciasDeEstudiante(Estudiante e) {
+        List<Asistencia> r = new ArrayList<>();
+
+        for (Asistencia a : asistencias) {
+            if (a.getEstudiante().getIdEstudiante().equals(e.getIdEstudiante())) {
+                r.add(a);
+            }
+        }
+        return r;
+    }
+
+    public List<Asistencia> obtenerAsistenciasDeClase(Clase clase) {
+        List<Asistencia> r = new ArrayList<>();
+
+        for (Asistencia a : asistencias) {
+            if (a.getClase().getId().equals(clase.getId())) {
+                r.add(a);
+            }
+        }
+        return r;
     }
 }

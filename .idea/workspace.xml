@@ -6,6 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="576ac3bc-a835-4a06-afcd-2bce7742f9dc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/AsistenciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/AsistenciaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/ClaseGrupalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/ClaseGrupalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/CursoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/CursoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/EstudianteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/EstudianteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/EvaluacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/EvaluacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/ProfesorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/ProfesorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/SalonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/controller/SalonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/model/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/model/Curso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/model/EvaluacionNivel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/model/EvaluacionNivel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/model/Profesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/escuelamusica/model/Profesor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "miguelAceballos2112"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/yakusua/EscuelaDeMusica.git",
+    "accountId": "be1636ab-b228-426b-840f-db209624f960"
+  }
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -34,11 +56,14 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
@@ -60,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1763162816967</updated>
       <workItem from="1763162821307" duration="269000" />
+      <workItem from="1763418255583" duration="4554000" />
     </task>
     <servers />
   </component>

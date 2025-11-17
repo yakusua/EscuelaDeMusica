@@ -34,4 +34,8 @@ public class ClaseGrupalController {
     public void eliminar(String id) {
         clases.removeIf(cg -> cg.getId().equals(id));
     }
+
+    public List<ClaseGrupal> listarClases() {
+        return clases;
+    }
 }

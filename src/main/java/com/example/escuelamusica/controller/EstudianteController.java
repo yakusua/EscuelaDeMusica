@@ -1,5 +1,8 @@
 package com.example.escuelamusica.controller;
 
+import com.example.escuelamusica.model.Asistencia;
+import com.example.escuelamusica.model.ClaseGrupal;
+import com.example.escuelamusica.model.Curso;
 import com.example.escuelamusica.model.Estudiante;
 
 import java.util.ArrayList;
@@ -26,5 +29,45 @@ public class EstudianteController {
 
     public void eliminar(String id) {
         estudiantes.removeIf(e -> e.getIdEstudiante().equals(id));
+    }
+
+    // Cursos donde está inscrito
+    public List<Curso> listarCursosDeEstudiante(Estudiante estudiante, List<Curso> cursos) {
+        List<Curso> resultado = new ArrayList<>();
+
+        for (Curso c : cursos) {
+            for (Estudiante e : c.getEstudiantesInscritos()) {
+                if (e.getIdEstudiante().equals(estudiante.getIdEstudiante())) {
+                    resultado.add(c);
+                }
+            }
+        }
+        return resultado;
+    }
+
+    // Evaluaciones del estudiante
+    public List<Evaluacion> listarEvaluacionesEstudiante(Estudiante estudiante, List<Evaluacion> evaluaciones) {
+        List<Evaluacion> resultado = new ArrayList<>();
+
+        for (Evaluacion e : evaluaciones) {
+            if (e.getEstudiante().getIdEstudiante().equals(estudiante.getIdEstudiante())) {
+                resultado.add(e);
+            }
+        }
+
+        return resultado;
+    }
+
+    // Asistencias del estudiante
+    public List<Asistencia> listarAsistenciasEstudiante(Estudiante estudiante, List<Asistencia> asistencias) {
+        List<Asistencia> r = new ArrayList<>();
+
+        for (Asistencia a : asistencias) {
+            if (a.getEstudiante().getIdEstudiante().equals(estudiante.getIdEstudiante())) {
+                r.add(a);
+            }
+        }
+
+        return r;
     }
 }

@@ -8,7 +8,8 @@ public class Curso {
     private int capacidad;
     private Instrumento instrumento;
     private Nivel nivel;
-    private Curso curso;
+    private Profesor profesor;
+    private List<Estudiante> estudiantesInscritos;
     private List<Clase> listClases;
 
     public Curso(String idCurso, int capacidad, Instrumento instrumento, Nivel nivel,  Curso curso) {
@@ -16,8 +17,16 @@ public class Curso {
         this.capacidad = capacidad;
         this.instrumento = instrumento;
         this.nivel = nivel;
-        this.curso = curso;
+        this.estudiantesInscritos = new ArrayList<>();
         this.listClases = new ArrayList<>();
+    }
+
+    public List<Estudiante> getEstudiantesInscritos() {
+        return estudiantesInscritos;
+    }
+
+    public void setEstudiantesInscritos(List<Estudiante> estudiantesInscritos) {
+        this.estudiantesInscritos = estudiantesInscritos;
     }
 
     public String getIdCurso() {
@@ -44,14 +53,6 @@ public class Curso {
         this.listClases = listClases;
     }
 
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-
     public Nivel getNivel() {
         return nivel;
     }
@@ -66,5 +67,24 @@ public class Curso {
 
     public void setInstrumento(Instrumento instrumento) {
         this.instrumento = instrumento;
+    }
+
+    public Profesor getProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
+
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "idCurso='" + idCurso + '\'' +
+                ", capacidad=" + capacidad +
+                ", instrumento=" + instrumento +
+                ", nivel=" + nivel +
+                ", inscritos=" + estudiantesInscritos.size() +
+                '}';
     }
 }
