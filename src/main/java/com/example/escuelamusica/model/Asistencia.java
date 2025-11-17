@@ -3,12 +3,12 @@ package com.example.escuelamusica.model;
 import java.time.LocalDate;
 
 public class Asistencia {
-    private String id;
+    private String idAsistencia;
     private LocalDate fecha;
     private Estudiante estudiante;
     private Clase clase;
     private EstadoAsistencia estadoAsistencia;
-    public Asistencia(String id, LocalDate fecha, Estudiante estudiante, Clase clase, EstadoAsistencia estadoAsistencia) {
+    public Asistencia(String idAsistencia, LocalDate fecha, Estudiante estudiante, Clase clase, EstadoAsistencia estadoAsistencia) {
         // excepciones nulas de las instancias
         if (estudiante == null) {
             throw new IllegalArgumentException("El estudiante no puede ser nulo");
@@ -20,19 +20,19 @@ public class Asistencia {
             throw new IllegalArgumentException("El estado no puede ser nulo");
         }
 
-        this.id = id;
+        this.idAsistencia = idAsistencia;
         this.fecha = fecha;
         this.estudiante = estudiante;
         this.clase = clase;
         this.estadoAsistencia = estadoAsistencia;
     }
 
-    public String getId() {
-        return id;
+    public String getIdAsistencia() {
+        return idAsistencia;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String idAsistencia) {
+        this.idAsistencia = idAsistencia;
     }
 
     public LocalDate getFecha() {
@@ -69,7 +69,7 @@ public class Asistencia {
     @Override
     public String toString() {
         return "Asistencia{" +
-                "id='" + id + '\'' +
+                "id='" + idAsistencia + '\'' +
                 ", fecha=" + fecha +
                 ", estudiante=" + (estudiante != null ? estudiante.getNombre() : "null") +
                 ", clase=" + (clase != null ? clase.getId() : "null") +

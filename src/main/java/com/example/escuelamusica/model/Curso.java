@@ -4,18 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Curso {
+    private String idCurso;
     private int capacidad;
     private Instrumento instrumento;
     private Nivel nivel;
     private Curso curso;
     private List<Clase> listClases;
 
-    public Curso(int capacidad, Instrumento instrumento, Nivel nivel,  Curso curso) {
+    public Curso(String idCurso, int capacidad, Instrumento instrumento, Nivel nivel,  Curso curso) {
+        this.idCurso = idCurso;
         this.capacidad = capacidad;
         this.instrumento = instrumento;
         this.nivel = nivel;
         this.curso = curso;
         this.listClases = new ArrayList<>();
+    }
+
+    public String getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(String idCurso) {
+        this.idCurso = idCurso;
     }
 
     public int getCapacidad() {
