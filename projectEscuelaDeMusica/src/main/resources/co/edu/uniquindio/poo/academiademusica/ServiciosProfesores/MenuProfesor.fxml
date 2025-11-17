@@ -1,37 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:id="root"
-      fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.MenuProfesorViewController"
-      alignment="CENTER"
-      spacing="20">
-    <padding>
-        <Insets top="30" right="30" bottom="30" left="30"/>
-    </padding>
+<AnchorPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.MenuProfesorViewController"
+            prefWidth="350.0" prefHeight="450.0">
 
-    <Button fx:id="btnAsistencia"
-            text="Registrar Asistencia"
-            onAction="#irAsistencia"
-            prefWidth="250"/>
+    <VBox alignment="CENTER" spacing="20"
+          AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
+          AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
 
-    <Button fx:id="btnClases"
-            text="Crear Clases Grupales"
-            onAction="#irClases"
-            prefWidth="250"/>
+        <Label text="Funciones del Profesor"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
 
-    <Button fx:id="btnComentarios"
-            text="Hacer Comentarios"
-            onAction="#irComentarios"
-            prefWidth="250"/>
+        <Label text="Seleccione una función:"
+               style="-fx-font-size: 14px; -fx-text-fill: #555;"/>
 
-    <Button fx:id="btnHorarios"
-            text="Ver Horarios"
-            onAction="#irHorarios"
-            prefWidth="250"/>
+        <VBox spacing="15" alignment="CENTER">
 
-</VBox>
+            <Button fx:id="btnAsistencia"
+                    text="Registrar Asistencia"
+                    onAction="#irAsistencia"
+                    prefWidth="230"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnClases"
+                    text="Crear Clases Grupales"
+                    onAction="#irClases"
+                    prefWidth="230"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnComentarios"
+                    text="Hacer Comentarios"
+                    onAction="#irComentarios"
+                    prefWidth="230"
+                    style="-fx-background-color: #9b59b6; -fx-text-fill: white;"/>
+
+            <Button fx:id="btnHorarios"
+                    text="Ver Horarios"
+                    onAction="#irHorarios"
+                    prefWidth="230"
+                    style="-fx-background-color: #e67e22; -fx-text-fill: white;"/>
+
+        </VBox>
+
+    </VBox>
+</AnchorPane>
