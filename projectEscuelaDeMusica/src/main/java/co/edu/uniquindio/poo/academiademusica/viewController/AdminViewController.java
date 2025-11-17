@@ -156,7 +156,12 @@ public class AdminViewController {
             return null;
         }
 
-        return new AdministradorAcademico(nombre, email, rol, idAdmin); // <- usamos idAdmin
+        return new AdministradorAcademico(
+                "Administrador",     // nombre
+                "admin@correo.com",  // email
+                idAdmin              // id administrador
+        );
+
     }
 
 

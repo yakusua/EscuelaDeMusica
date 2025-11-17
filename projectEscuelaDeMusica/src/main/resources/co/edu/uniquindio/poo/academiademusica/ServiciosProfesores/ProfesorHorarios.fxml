@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.ProfesorHorariosViewController">
+
+    <top>
+        <Label text="Gestión de Horarios Disponibles"
+               style="-fx-font-size: 20px; -fx-padding: 10px;"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
+
+            <HBox spacing="10">
+                <Label text="Día:"/>
+                <ComboBox fx:id="cmbDia">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Lunes"/>
+                            <String fx:value="Martes"/>
+                            <String fx:value="Miércoles"/>
+                            <String fx:value="Jueves"/>
+                            <String fx:value="Viernes"/>
+                            <String fx:value="Sábado"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label text="Hora:"/>
+                <TextField fx:id="txtHora" promptText="Ej: 14:00 - 16:00"/>
+                <Button text="Agregar" onAction="#agregarHorario"/>
+            </HBox>
+
+            <TableView fx:id="tablaHorarios" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="colDia" text="Día" prefWidth="150"/>
+                    <TableColumn fx:id="colHora" text="Hora" prefWidth="200"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <Button text="Volver" onAction="#volver" style="-fx-padding: 10px;"/>
+    </bottom>
+
+</BorderPane>

@@ -6,6 +6,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.IntegerProperty;
+
 
 public class ClaseGrupal extends Clase {
 
@@ -74,5 +79,26 @@ public class ClaseGrupal extends Clase {
 
         return (listAsistencias.size() * 100.0) / estudiantesInscritos.size();
     }
+
+    public StringProperty instrumentoProperty() {
+        return new SimpleStringProperty(instrumento);
+    }
+
+    public StringProperty nivelProperty() {
+        return new SimpleStringProperty(String.valueOf(getNivel()));
+    }
+
+    public StringProperty aulaProperty() {
+        return new SimpleStringProperty(getSalon().getAula());
+    }
+
+    public StringProperty horarioProperty() {
+        return new SimpleStringProperty(getHorario().toString());
+    }
+
+    public IntegerProperty cuposProperty() {
+        return new SimpleIntegerProperty(getCupo());
+    }
+
 }
 

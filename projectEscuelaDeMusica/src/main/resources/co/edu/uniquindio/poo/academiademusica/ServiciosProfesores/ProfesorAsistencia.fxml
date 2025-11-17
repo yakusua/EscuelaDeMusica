@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.ProfesorAsistenciaViewController">
+
+    <top>
+        <Label text="Asistencia y Progreso"
+               style="-fx-font-size: 20px; -fx-padding: 10px;"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20px;">
+
+            <TableView fx:id="tablaAsistencia">
+                <columns>
+                    <TableColumn fx:id="colNombre" text="Estudiante"/>
+                    <TableColumn fx:id="colAsistencia" text="Asistencia"/>
+                    <TableColumn fx:id="colProgreso" text="Progreso"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10">
+                <Button text="Marcar Presente" onAction="#marcarPresente"/>
+                <Button text="Marcar Ausente" onAction="#marcarAusente"/>
+                <Button text="Subir Progreso" onAction="#subirProgreso"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <Button text="Volver" onAction="#volver" style="-fx-padding: 10px;"/>
+    </bottom>
+
+</BorderPane>

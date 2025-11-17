@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="root"
+      fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.MenuProfesorViewController"
+      alignment="CENTER"
+      spacing="20">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Button fx:id="btnAsistencia"
+            text="Registrar Asistencia"
+            onAction="#irAsistencia"
+            prefWidth="250"/>
+
+    <Button fx:id="btnClases"
+            text="Crear Clases Grupales"
+            onAction="#irClases"
+            prefWidth="250"/>
+
+    <Button fx:id="btnComentarios"
+            text="Hacer Comentarios"
+            onAction="#irComentarios"
+            prefWidth="250"/>
+
+    <Button fx:id="btnHorarios"
+            text="Ver Horarios"
+            onAction="#irHorarios"
+            prefWidth="250"/>
+
+</VBox>

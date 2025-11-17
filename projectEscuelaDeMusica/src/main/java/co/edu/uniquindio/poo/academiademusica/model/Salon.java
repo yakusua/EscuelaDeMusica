@@ -7,6 +7,7 @@ public class Salon {
     private int capacidad;
     private Clase clase;
     private AdministradorAcademico administradorAcademico;
+    private String aula;
 
     public Salon (String nombre, int capacidad, AdministradorAcademico administradorAcademico) {
         this.nombre = nombre;
@@ -54,5 +55,13 @@ public class Salon {
                 ", clase=" + clase +
                 ", administradorAcademico=" + administradorAcademico +
                 '}';
+    }
+
+    public String getAula() {
+        return aula;
+    }
+
+    public void setAula(String aula) {
+        this.aula = aula;
     }
 }

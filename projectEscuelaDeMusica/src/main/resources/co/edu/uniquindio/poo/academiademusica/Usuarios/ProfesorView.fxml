@@ -60,6 +60,8 @@
                     style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
             <Button text="Limpiar" onAction="#onLimpiar"
                     style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+            <Button text="Acciones" onAction="#onMenu"
+                    style="-fx-background-color: #3298ab; -fx-text-fill: white;"/>
         </HBox>
 
         <!-- TABLA -->
@@ -79,10 +81,7 @@
                 <Insets top="10" right="0" bottom="5" left="0"/>
             </padding>
 
-            <Button text="Volver"
-                    onAction="#volverAlMenuPrincipal"
-                    style="-fx-background-color: #7f8c8d; -fx-text-fill: white;"
-                    prefWidth="140"/>
+
         </HBox>
     </VBox>
 </AnchorPane>

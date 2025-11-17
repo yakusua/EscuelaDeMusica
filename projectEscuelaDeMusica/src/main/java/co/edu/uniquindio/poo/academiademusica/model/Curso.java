@@ -18,6 +18,7 @@ public class Curso {
         this.listClases = new ArrayList<>();
     }
 
+
     public int getCapacidad() {
         return capacidad;
     }

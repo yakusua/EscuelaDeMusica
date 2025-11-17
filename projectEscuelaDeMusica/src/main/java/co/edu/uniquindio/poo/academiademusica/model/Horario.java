@@ -1,49 +1,44 @@
 package co.edu.uniquindio.poo.academiademusica.model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Horario {
 
-    private LocalDate fecha;
-    private LocalTime horaInicio;
-    private LocalTime horaFin;
-    public Horario(LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
-        this.fecha = fecha;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
+    private final StringProperty dia;
+    private final StringProperty hora;
+
+    public Horario(String dia, String hora) {
+        this.dia = new SimpleStringProperty(dia);
+        this.hora = new SimpleStringProperty(hora);
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public String getDia() {
+        return dia.get();
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setDia(String dia) {
+        this.dia.set(dia);
     }
 
-    public LocalTime getHoraInicio() {
-        return horaInicio;
+    public StringProperty diaProperty() {
+        return dia;
     }
 
-    public void setHoraInicio(LocalTime horaInicio) {
-        this.horaInicio = horaInicio;
+    public String getHora() {
+        return hora.get();
     }
 
-    public LocalTime getHoraFin() {
-        return horaFin;
+    public void setHora(String hora) {
+        this.hora.set(hora);
     }
 
-    public void setHoraFin(LocalTime horaFin) {
-        this.horaFin = horaFin;
+    public StringProperty horaProperty() {
+        return hora;
     }
 
     @Override
     public String toString() {
-        return "Horario{" +
-                "fecha=" + fecha +
-                ", horaInicio=" + horaInicio +
-                ", horaFin=" + horaFin +
-                '}';
+        return dia.get() + " - " + hora.get();
     }
 }

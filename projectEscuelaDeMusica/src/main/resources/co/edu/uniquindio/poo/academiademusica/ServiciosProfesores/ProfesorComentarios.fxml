@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.ProfesorComentariosViewController">
+
+    <top>
+        <Label text="Comentarios del Profesor"
+               style="-fx-font-size: 20px; -fx-padding: 10px;"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20px;">
+
+            <TableView fx:id="tablaEstudiantes">
+                <columns>
+                    <TableColumn fx:id="colEstudiante" text="Estudiante"/>
+                    <TableColumn fx:id="colUltComentario" text="Último Comentario"/>
+                </columns>
+            </TableView>
+
+            <Label text="Comentario:"/>
+            <TextArea fx:id="txtComentario" prefHeight="120"/>
+
+            <Button text="Guardar Comentario" onAction="#guardarComentario"/>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <Button text="Volver" onAction="#volver" style="-fx-padding: 10px;"/>
+    </bottom>
+
+</BorderPane>

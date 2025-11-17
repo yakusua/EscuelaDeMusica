@@ -1,10 +1,11 @@
 package co.edu.uniquindio.poo.academiademusica.model;
 
 public class AdministradorAcademico extends Usuario {
+
     private String idAdministrador;
 
-    public AdministradorAcademico(String nombre, String email, String rol, String idAdministrador) {
-        super(nombre, email, rol);
+    public AdministradorAcademico(String nombre, String email, String idAdministrador) {
+        super(nombre, email, "Administrador Académico");
         this.idAdministrador = idAdministrador;
     }
 
@@ -16,7 +17,6 @@ public class AdministradorAcademico extends Usuario {
         this.idAdministrador = idAdministrador;
     }
 
-    // permite modificar la info de un usuario
     public void modificarUsuario(Usuario usuario, String nuevoNombre, String nuevoEmail) {
         usuario.setNombre(nuevoNombre);
         usuario.setEmail(nuevoEmail);
@@ -31,3 +31,4 @@ public class AdministradorAcademico extends Usuario {
                 '}';
     }
 }
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.ProfesorClasesGrupalesViewController">
+
+    <top>
+        <Label text="Clases Grupales"
+               style="-fx-font-size: 20px; -fx-padding: 10px;"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20px;">
+
+            <HBox spacing="10">
+                <Label text="Instrumento:"/>
+                <TextField fx:id="txtInstrumento"/>
+                <Label text="Nivel:"/>
+                <ComboBox fx:id="cmbNivel">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Básico"/>
+                            <String fx:value="Intermedio"/>
+                            <String fx:value="Avanzado"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Aula:"/>
+                <TextField fx:id="txtAula"/>
+                <Label text="Cupos:"/>
+                <TextField fx:id="txtCupos"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Horario:"/>
+                <TextField fx:id="txtHorario" promptText="Ej: Lunes 14:00 - 16:00"/>
+                <Button text="Crear Clase" onAction="#crearClase"/>
+            </HBox>
+
+            <TableView fx:id="tablaClases">
+                <columns>
+                    <TableColumn fx:id="colInst" text="Instrumento"/>
+                    <TableColumn fx:id="colNivel" text="Nivel"/>
+                    <TableColumn fx:id="colAula" text="Aula"/>
+                    <TableColumn fx:id="colCupos" text="Cupos"/>
+                    <TableColumn fx:id="colHorario" text="Horario"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <Button text="Volver" onAction="#volver" style="-fx-padding: 10px;"/>
+    </bottom>
+
+</BorderPane>
