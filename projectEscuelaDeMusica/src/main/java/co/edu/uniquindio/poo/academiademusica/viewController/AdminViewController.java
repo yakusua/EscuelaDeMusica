@@ -32,12 +32,12 @@ public class AdminViewController {
     @FXML
     public void volverAlMenuPrincipal() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/academiademusica/VentanaPrincipal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/academiademusica/Usuarios/CrudUsuario.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) txtNombre.getScene().getWindow();
 
-            Scene scene = new Scene(root, 320, 420);
+            Scene scene = new Scene(root, 500, 300);
             stage.setScene(scene);
             stage.setTitle("Menú Principal");
 

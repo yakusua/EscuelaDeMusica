@@ -18,14 +18,10 @@ public class App extends Application {
         openVentanaPrincipal(); // Seleccionar
     }
 
-
-
     public static void openVentanaPrincipal() {
         openWindow("/co/edu/uniquindio/poo/academiademusica/VentanaPrincipal.fxml",
                 "Menú Principal");
     }
-
-
 
     public static void openCrudUsuario() {
         openWindow("co/edu/uniquindio/poo/academiademusica/Usuarios/CrudUsuario.fxml",
@@ -46,34 +42,6 @@ public class App extends Application {
         openWindow("/co/edu/uniquindio/poo/segurcoljfx/empleados/crudOperadorMonitoreo.fxml",
                 "Gestión de Operadores de Monitoreo");
     }
-
-/*
-    public static void openCrudServicios() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/crudServicio.fxml",
-                "Gestión de Servicios");
-    }
-
-    public static void openCrudCustodiaFija() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/servicios/crudCustodiaFija.fxml",
-                "Gestión de Custodia Fija");
-    }
-
-    public static void openCrudPatrullajeMovil() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/servicios/crudPatrullajeMovil.fxml",
-                "Gestión de Patrullaje Móvil");
-    }
-
-    public static void openCrudEquipos() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/crudEquipos.fxml",
-                "Gestión de Equipos");
-    }
-
-    public static void openCrudAgenda() {
-        openWindow("/co/edu/uniquindio/poo/segurcoljfx/crudAgenda.fxml",
-                "Gestión de Agenda y Novedades");
-    }
-  */
-
 
     //abre cualquier  fxml
     private static void openWindow(String fxmlPath, String title) {

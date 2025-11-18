@@ -40,10 +40,6 @@
                     prefWidth="200"
                     style="-fx-background-color: #e67e22; -fx-text-fill: white;"/>
 
-            <Button fx:id="btnReportes" text="Reportes"
-                    onAction="#abrirReportes"
-                    prefWidth="200"
-                    style="-fx-background-color: #c0392b; -fx-text-fill: white;"/>
         </VBox>
 
     </VBox>

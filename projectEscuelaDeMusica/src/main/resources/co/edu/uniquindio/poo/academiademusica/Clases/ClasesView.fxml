@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+<!--Vista solo para dos botones -->
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ClasesViewController"
+      spacing="20" alignment="CENTER"
+      style="-fx-padding: 30;">
 
-</AnchorPane>
+    <Label text="Gestión de Clases"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <Button text="Crear Clase Individual"
+            style="-fx-font-size: 16px;"
+            prefWidth="250"
+            onAction="#abrirClaseIndividual"/>
+
+    <Button text="Crear Clase Grupal"
+            style="-fx-font-size: 16px;"
+            prefWidth="250"
+            onAction="#abrirClaseGrupal"/>
+
+</VBox>

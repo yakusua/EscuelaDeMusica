@@ -1,8 +1,14 @@
 package co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores;
 import co.edu.uniquindio.poo.academiademusica.model.ComentarioEstudiante;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.collections.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ProfesorComentariosViewController {
 
@@ -37,5 +43,27 @@ public class ProfesorComentariosViewController {
     }
 
     @FXML
-    private void volver() {}
+    private void volver() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/MenuProfesor.fxml"
+            ));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) tablaEstudiantes.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error al regresar al menú del profesor: " + e.getMessage());
+        }
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 }

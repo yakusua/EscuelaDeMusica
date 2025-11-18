@@ -2,8 +2,14 @@ package co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesore
 
 import co.edu.uniquindio.poo.academiademusica.model.Horario;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.collections.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ProfesorHorariosViewController {
 
@@ -31,7 +37,7 @@ public class ProfesorHorariosViewController {
     @FXML
     private void agregarHorario() {
         if (cmbDia.getValue() == null || txtHora.getText().isBlank()) {
-            mostrar("Debes seleccionar un día y una hora.");
+            mostrarAlerta("Debes seleccionar un día y una hora.");
             return;
         }
 
@@ -41,9 +47,27 @@ public class ProfesorHorariosViewController {
 
     @FXML
     private void volver() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/MenuProfesor.fxml"
+            ));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) tablaHorarios.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error al regresar al menú del profesor: " + e.getMessage());
+        }
     }
 
-    private void mostrar(String msg) {
-        new Alert(Alert.AlertType.WARNING, msg).show();
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
+

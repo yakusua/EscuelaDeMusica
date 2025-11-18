@@ -2,8 +2,9 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+
 <?import java.lang.String?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.ProfesorClasesGrupalesViewController">
@@ -18,14 +19,25 @@
 
             <HBox spacing="10">
                 <Label text="Instrumento:"/>
-                <TextField fx:id="txtInstrumento"/>
+                <ComboBox fx:id="cmbInstrumento">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="PIANO"/>
+                            <String fx:value="GUITARRA"/>
+                            <String fx:value="VIOLIN"/>
+                            <String fx:value="CANTO"/>
+                            <String fx:value="BATERIA"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
                 <Label text="Nivel:"/>
                 <ComboBox fx:id="cmbNivel">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="Básico"/>
-                            <String fx:value="Intermedio"/>
-                            <String fx:value="Avanzado"/>
+                            <String fx:value="PRINCIPIANTE"/>
+                            <String fx:value="INTERMEDIO"/>
+                            <String fx:value="AVANZADO"/>
                         </FXCollections>
                     </items>
                 </ComboBox>
@@ -42,6 +54,7 @@
                 <Label text="Horario:"/>
                 <TextField fx:id="txtHorario" promptText="Ej: Lunes 14:00 - 16:00"/>
                 <Button text="Crear Clase" onAction="#crearClase"/>
+                <Button text="Eliminar Clase" onAction="#eliminarClase"/>
             </HBox>
 
             <TableView fx:id="tablaClases">
@@ -54,11 +67,20 @@
                 </columns>
             </TableView>
 
+            <!-- BOTÓN DE VOLVER -->
+            <HBox alignment="CENTER">
+                <padding>
+                    <Insets top="10" right="0" bottom="5" left="0"/>
+                </padding>
+
+                <Button text="Volver"
+                        onAction="#volver"
+                        style="-fx-background-color: #7f8c8d; -fx-text-fill: white;"
+                        prefWidth="140"/>
+            </HBox>
+
         </VBox>
     </center>
 
-    <bottom>
-        <Button text="Volver" onAction="#volver" style="-fx-padding: 10px;"/>
-    </bottom>
-
 </BorderPane>
+

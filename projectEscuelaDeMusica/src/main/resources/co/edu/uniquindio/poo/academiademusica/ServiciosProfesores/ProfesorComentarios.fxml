@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.ProfesorComentariosViewController">
 
@@ -26,11 +27,20 @@
 
             <Button text="Guardar Comentario" onAction="#guardarComentario"/>
 
+
+            <!-- BOTÓN VOLVER  -->
+            <HBox alignment="CENTER">
+                <padding>
+                    <Insets top="10" right="0" bottom="5" left="0"/>
+                </padding>
+
+                <Button text="Volver"
+                        onAction="#volver"
+                        style="-fx-background-color: #7f8c8d; -fx-text-fill: white;"
+                        prefWidth="140"/>
+            </HBox>
         </VBox>
     </center>
 
-    <bottom>
-        <Button text="Volver" onAction="#volver" style="-fx-padding: 10px;"/>
-    </bottom>
 
 </BorderPane>

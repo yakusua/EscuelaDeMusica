@@ -14,35 +14,37 @@ public class MenuProfesorViewController {
     private Button btnAsistencia, btnClases, btnComentarios, btnHorarios;
 
     @FXML
-    private VBox root; // <---- ESTE ES EL QUE SE USA
+    private VBox root; //para lograr obtener la ventanActual
 
     @FXML
     private void irAsistencia() {
-        cambiarVentana("/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/ProfesorAsistencia.fxml","Asistencia");
+        cambiarVentana("/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/ProfesorAsistencia.fxml");
     }
 
     @FXML
     private void irClases() {
-        cambiarVentana("/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/ProfesorClasesGrupales.fxml","Clases grupales");
+        cambiarVentana("/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/ProfesorClasesGrupales.fxml");
     }
 
     @FXML
     private void irComentarios() {
-        cambiarVentana("/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/ProfesorComentarios.fxml","Comentarios");
+        cambiarVentana("/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/ProfesorComentarios.fxml");
     }
 
     @FXML
     private void irHorarios() {
-        cambiarVentana("/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/ProfesorHorarios.fxml","Horarios");
+        cambiarVentana("/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/ProfesorHorarios.fxml");
     }
 
-    private void cambiarVentana(String ruta, String titulo) {
+    private void cambiarVentana(String ruta) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(ruta));
-            Stage stage = new Stage();
-            stage.setTitle(titulo);
-            stage.setScene(new Scene(loader.load()));
+            Parent rootNuevo = loader.load();
+
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setScene(new Scene(rootNuevo));
             stage.show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
