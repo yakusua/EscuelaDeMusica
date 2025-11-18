@@ -9,65 +9,78 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EstudianteController {
-    private List<Estudiante> estudiantes = new ArrayList<>();
+    private final List<Estudiante> estudiantes = new ArrayList<>();
 
-    public void crear(Estudiante e) {
-        estudiantes.add(e);
-    }
+    public EstudianteController() { }
 
-    public List<Estudiante> listar() {
-        return estudiantes;
-    }
-
-    public void actualizar(Estudiante eActualizado) {
+    public boolean guardarEstudiante(Estudiante e) {
+        if (e == null) {
+            System.out.println("Aviso: estudiante nulo. No se guarda.");
+            return false;
+        }
         for (int i = 0; i < estudiantes.size(); i++) {
-            if (estudiantes.get(i).getIdEstudiante().equals(eActualizado.getIdEstudiante())) {
-                estudiantes.set(i, eActualizado);
+            if (estudiantes.get(i).getIdEstudiante().equals(e.getIdEstudiante())) {
+                estudiantes.set(i, e);
+                System.out.println("Estudiante actualizado: " + e.getIdEstudiante());
+                return true;
             }
         }
+        estudiantes.add(e);
+        System.out.println("Estudiante agregado: " + e.getIdEstudiante());
+        return true;
     }
 
-    public void eliminar(String id) {
-        estudiantes.removeIf(e -> e.getIdEstudiante().equals(id));
+    public Estudiante buscarEstudiantePorId(String id) {
+        if (id == null) return null;
+        for (int i = 0; i < estudiantes.size(); i++) {
+            if (estudiantes.get(i).getIdEstudiante().equals(id)) return estudiantes.get(i);
+        }
+        return null;
     }
 
-    // Cursos donde está inscrito
-    public List<Curso> listarCursosDeEstudiante(Estudiante estudiante, List<Curso> cursos) {
-        List<Curso> resultado = new ArrayList<>();
+    public List<Estudiante> listarEstudiantes() {
+        List<Estudiante> copia = new ArrayList<>();
+        for (int i = 0; i < estudiantes.size(); i++) copia.add(estudiantes.get(i));
+        return copia;
+    }
 
-        for (Curso c : cursos) {
-            for (Estudiante e : c.getEstudiantesInscritos()) {
-                if (e.getIdEstudiante().equals(estudiante.getIdEstudiante())) {
-                    resultado.add(c);
-                }
+    public boolean eliminarEstudiante(String id) {
+        if (id == null) return false;
+        for (int i = 0; i < estudiantes.size(); i++) {
+            if (estudiantes.get(i).getIdEstudiante().equals(id)) {
+                estudiantes.remove(i);
+                System.out.println("Estudiante eliminado: " + id);
+                return true;
             }
         }
-        return resultado;
+        System.out.println("Aviso: estudiante no encontrado: " + id);
+        return false;
     }
 
-    // Evaluaciones del estudiante
-    public List<Evaluacion> listarEvaluacionesEstudiante(Estudiante estudiante, List<Evaluacion> evaluaciones) {
-        List<Evaluacion> resultado = new ArrayList<>();
-
-        for (Evaluacion e : evaluaciones) {
-            if (e.getEstudiante().getIdEstudiante().equals(estudiante.getIdEstudiante())) {
-                resultado.add(e);
-            }
+    // marcar curso como aprobado localmente (usa métodos del modelo Estudiante)
+    public boolean marcarAprobado(String estudianteId, Curso curso) {
+        Estudiante e = buscarEstudiantePorId(estudianteId);
+        if (e == null) {
+            System.out.println("Aviso: estudiante no encontrado: " + estudianteId);
+            return false;
         }
-
-        return resultado;
+        if (curso == null) {
+            System.out.println("Aviso: curso nulo.");
+            return false;
+        }
+        boolean ok = e.aprobarCursoLocal(curso);
+        if (ok) {
+            guardarEstudiante(e);
+            System.out.println("Curso marcado como aprobado: " + curso.getIdCurso() + " para estudiante " +
+                    estudianteId);
+        }
+        return ok;
     }
 
-    // Asistencias del estudiante
-    public List<Asistencia> listarAsistenciasEstudiante(Estudiante estudiante, List<Asistencia> asistencias) {
-        List<Asistencia> r = new ArrayList<>();
-
-        for (Asistencia a : asistencias) {
-            if (a.getEstudiante().getIdEstudiante().equals(estudiante.getIdEstudiante())) {
-                r.add(a);
-            }
-        }
-
-        return r;
+    public boolean haAprobadoCurso(String estudianteId, Curso curso) {
+        Estudiante e = buscarEstudiantePorId(estudianteId);
+        if (e == null || curso == null) return false;
+        return e.haAprobadoCursoLocal(curso);
     }
 }
+

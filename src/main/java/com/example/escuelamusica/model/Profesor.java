@@ -1,6 +1,7 @@
 package com.example.escuelamusica.model;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Profesor extends Usuario {
     private String idProfesor;
@@ -57,4 +58,18 @@ public class Profesor extends Usuario {
                 ", clasesAsignadas=" + listClasesAsignadas.size() +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Profesor)) return false;
+        Profesor profesor = (Profesor) o;
+        return Objects.equals(idProfesor, profesor.idProfesor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idProfesor);
+    }
+
 }
