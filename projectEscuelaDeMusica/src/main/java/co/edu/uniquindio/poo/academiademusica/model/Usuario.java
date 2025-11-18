@@ -54,4 +54,5 @@ public abstract class Usuario implements IUsuario {
                 ", email='" + email + '\'' +
                 '}';
     }
+
 }

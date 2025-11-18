@@ -64,4 +64,5 @@ public class Salon {
     public void setAula(String aula) {
         this.aula = aula;
     }
+
 }

@@ -25,4 +25,5 @@ public class Registro {
 
     public void setAsistencia(String valor) { asistencia.set(valor); }
     public void setProgreso(String valor) { progreso.set(valor); }
+
 }

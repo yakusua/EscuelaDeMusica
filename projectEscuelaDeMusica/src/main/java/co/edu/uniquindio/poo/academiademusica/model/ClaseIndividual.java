@@ -94,5 +94,6 @@ public class ClaseIndividual extends Clase {
 
         return (asistio * 100.0) / listAsistencias.size();
     }
+
 }
 

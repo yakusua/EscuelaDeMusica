@@ -57,4 +57,5 @@ public class Estudiante extends Usuario {
                 ", curso='" + curso + '\'' +
                 '}';
     }
+
 }
