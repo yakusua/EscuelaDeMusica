@@ -76,6 +76,5 @@ public class Asistencia {
                 ", estado=" + estadoAsistencia +
                 '}';
     }
-    //ternario para validar si exist
 
 }

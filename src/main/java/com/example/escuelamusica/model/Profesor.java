@@ -1,16 +1,17 @@
 package com.example.escuelamusica.model;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Profesor extends Usuario {
-    private String idprofesor;
+    private String idProfesor;
     private String especialidad;
     private LinkedList<Clase> listClasesAsignadas;
     private Instrumento instrumento;
 
-    public Profesor(String nombre, String email, String rol,String idprofesor, String especialidad, Instrumento instrumento) {
+    public Profesor(String nombre, String email, String rol,String idProfesor, String especialidad, Instrumento instrumento) {
         super(nombre, email, rol);
-        this.idprofesor = idprofesor;
+        this.idProfesor = idProfesor;
         this.especialidad = especialidad;
         this.listClasesAsignadas = new LinkedList<>();
         this.instrumento = instrumento;
@@ -32,12 +33,12 @@ public class Profesor extends Usuario {
         this.especialidad = especialidad;
     }
 
-    public String getIdprofesor() {
-        return idprofesor;
+    public String getIdProfesor() {
+        return idProfesor;
     }
 
-    public void setIdprofesor(String idprofesor) {
-        this.idprofesor = idprofesor;
+    public void setIdProfesor(String idProfesor) {
+        this.idProfesor = idProfesor;
     }
 
     public Instrumento getInstrumento() {
@@ -49,7 +50,7 @@ public class Profesor extends Usuario {
     @Override
     public String toString() {
         return "Profesor{" +
-                "idProfesor='" + idprofesor + '\'' +
+                "idProfesor='" + idProfesor + '\'' +
                 ", nombre='" + getNombre() + '\'' +
                 ", email='" + getEmail() + '\'' +
                 ", especialidad='" + especialidad + '\'' +
@@ -57,4 +58,18 @@ public class Profesor extends Usuario {
                 ", clasesAsignadas=" + listClasesAsignadas.size() +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Profesor)) return false;
+        Profesor profesor = (Profesor) o;
+        return Objects.equals(idProfesor, profesor.idProfesor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idProfesor);
+    }
+
 }

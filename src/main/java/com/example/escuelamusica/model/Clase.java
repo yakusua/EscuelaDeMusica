@@ -1,85 +1,80 @@
 package com.example.escuelamusica.model;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class Clase implements IAsistible {
     protected String id;
-    protected String horario;
+    protected LocalDate fecha;
+    protected LocalTime hora;
     protected int cupo;
     protected Profesor profesor;
     protected Curso curso;
     protected Salon salon;
     protected List<Asistencia> listAsistencias;
 
-    public Clase(String id, String horario,int cupo, Profesor profesor, Curso curso, Salon salon) {
-        this.id = id;
-        this.horario = horario;
-        this.cupo = cupo;
+    public Clase(String id, LocalDate fecha, LocalTime hora, int cupo, Profesor profesor, Curso curso, Salon salon) {
+        this.id = (id == null || id.isBlank()) ? java.util.UUID.randomUUID().toString() : id;
+        this.fecha = (fecha == null) ? LocalDate.now() : fecha;
+        this.hora = (hora == null) ? LocalTime.of(0,0) : hora;
+        this.cupo = (cupo <= 0) ? 1 : cupo;
         this.profesor = profesor;
         this.curso = curso;
         this.salon = salon;
         this.listAsistencias = new ArrayList<>();
     }
 
-    public Salon getSalon() {
-        return salon;
-    }
-
-    public void setSalon(Salon salon) {
-        this.salon = salon;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-
-    public Profesor getProfesor() {
-        return profesor;
-    }
-
     public void setProfesor(Profesor profesor) {
+        if (profesor == null) {
+            System.out.println("Aviso: profesor nulo. No se asignó.");
+            return;
+        }
         this.profesor = profesor;
     }
 
+    public void setSalon(Salon salon) {
+        if (salon == null) {
+            System.out.println("Aviso: salon nulo. No se asignó.");
+            return;
+        }
+        this.salon = salon;
+    }
+
+    public void setCurso(Curso curso) {
+        if (curso == null) {
+            System.out.println("Aviso: curso nulo. No se asignó.");
+            return;
+        }
+        this.curso = curso;
+    }
+
+
+    public String getId() { return id; }
+    public LocalDate getFecha() { return fecha; }
+    public LocalTime getHora() { return hora; }
     public int getCupo() {
         return cupo;
     }
+    public Profesor getProfesor() { return profesor; }
+    public Curso getCurso() { return curso; }
+    public Salon getSalon() { return salon; }
+    public List<Asistencia> getListAsistencias() { return new ArrayList<>(listAsistencias); }
 
-    public void setCupo(int cupo) {
-        this.cupo = cupo;
+    protected int estudiantesInscritosSize() {
+        if (this instanceof ClaseGrupal) {
+            return ((ClaseGrupal) this).getEstudiantesInscritos().size();
+        } else if (this instanceof ClaseIndividual) {
+            return (((ClaseIndividual) this).getEstudiante() == null) ? 0 : 1;
+        }
+        return 0;
     }
 
-    public String getHorario() {
-        return horario;
+    public boolean estaCompletaLocal() {
+        return estudiantesInscritosSize() >= cupo;
     }
-
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public List<Asistencia> getListAsistencias() {
-        return listAsistencias;
-    }
-
-    public void setListAsistencias(List<Asistencia> listAsistencias) {
-        this.listAsistencias = listAsistencias;
-    }
-
 
     public abstract List<Estudiante> obtenerEstudiantesInscritos();
-
     protected abstract boolean validarEstudianteInscrito(Estudiante estudiante);
 }
