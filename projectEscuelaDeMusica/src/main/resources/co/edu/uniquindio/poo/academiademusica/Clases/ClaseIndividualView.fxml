@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ClaseIndividualViewController">
 
-</AnchorPane>
+    <!-- title -->
+    <top>
+        <Label text="Clases Individuales"
+               style="-fx-font-size: 20px; -fx-padding: 10px;"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20px;">
+
+            <!-- combobox instru-->
+            <HBox spacing="10">
+                <Label text="Instrumento:"/>
+                <ComboBox fx:id="cmbInstrumento" prefWidth="140"/>
+
+                <Label text="Nivel:"/>
+                <ComboBox fx:id="cmbNivel" prefWidth="140"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Aula:"/>
+                <TextField fx:id="txtAula" prefWidth="120"/>
+
+                <Label text="Horario:"/>
+                <TextField fx:id="txtHorario" prefWidth="200"
+                           promptText="Ej: Martes 10:00 - 11:00"/>
+            </HBox>
+
+            <!-- estu-->
+            <HBox spacing="10">
+                <Label text="Estudiante:"/>
+                <ComboBox fx:id="cmbEstudiante" prefWidth="250"/>
+            </HBox>
+
+            <!-- BOTONES -->
+            <HBox spacing="10">
+                <Button text="Crear Clase" onAction="#crearClase"/>
+                <Button text="Eliminar Clase" onAction="#eliminarClase"/>
+            </HBox>
+
+            <!--table -->
+            <TableView fx:id="tablaClasesIndividuales" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="colEstudiante" text="Estudiante"/>
+                    <TableColumn fx:id="colInstrumento" text="Instrumento"/>
+                    <TableColumn fx:id="colNivel" text="Nivel"/>
+                    <TableColumn fx:id="colAula" text="Aula"/>
+                    <TableColumn fx:id="colHorario" text="Horario"/>
+                </columns>
+            </TableView>
+
+            <!-- BOTÓN VOLVER -->
+            <HBox alignment="CENTER">
+                <padding>
+                    <Insets top="10" right="0" bottom="5" left="0"/>
+                </padding>
+
+                <Button text="Volver"
+                        onAction="#volver"
+                        style="-fx-background-color: #7f8c8d; -fx-text-fill: white;"
+                        prefWidth="140"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -30,5 +30,10 @@ public class AdministradorAcademico extends Usuario {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    public String getId() {
+        return null;
+    }
+
 }
 

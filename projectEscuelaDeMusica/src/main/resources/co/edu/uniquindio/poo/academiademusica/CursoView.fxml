@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+<?import javafx.collections.FXCollections?>
 
+<?import java.lang.String?>
 <AnchorPane prefHeight="500.0" prefWidth="450.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -16,13 +13,13 @@
 
     <children>
 
-        <!-- FORMULARIO -->
+        <!-- form-->
         <Pane layoutX="10.0" layoutY="10.0"
-              prefHeight="220.0" prefWidth="430.0"
+              prefHeight="150.0" prefWidth="430.0"
               style="-fx-border-color: #cccccc; -fx-border-radius: 5;">
             <children>
 
-                <Label layoutX="150.0" layoutY="15.0" text="Gestión de Cursos">
+                <Label layoutX="150.0" layoutY="10.0" text="Gestión de Cursos">
                     <font><Font name="System Bold" size="18.0" /></font>
                 </Label>
 
@@ -35,28 +32,41 @@
                            prefWidth="100.0" promptText="Número de estudiantes"/>
 
                 <Label layoutX="30.0" layoutY="120.0" text="Instrumento:"/>
-                <TextField fx:id="txtInstrumento" layoutX="140.0" layoutY="116.0"
-                           prefWidth="120.0" promptText="Instrumento"/>
+                <ComboBox fx:id="cmbInstrumento" layoutX="140.0" layoutY="116.0" prefWidth="120.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="PIANO"/>
+                            <String fx:value="GUITARRA"/>
+                            <String fx:value="VIOLIN"/>
+                            <String fx:value="CANTO"/>
+                            <String fx:value="BATERIA"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
 
                 <Label layoutX="270.0" layoutY="120.0" text="Nivel:"/>
-                <TextField fx:id="txtNivel" layoutX="320.0" layoutY="116.0"
-                           prefWidth="70.0" promptText="Nivel"/>
-
-                <Button fx:id="btnCrear" layoutX="50.0" layoutY="180.0"
-                        prefWidth="100.0" text="Crear" onAction="#onCrear"/>
-
-                <Button fx:id="btnActualizar" layoutX="175.0" layoutY="180.0"
-                        prefWidth="100.0" text="Actualizar" onAction="#onActualizar"/>
-
-                <Button fx:id="btnLimpiar" layoutX="300.0" layoutY="180.0"
-                        prefWidth="100.0" text="Limpiar" onAction="#onLimpiar"/>
+                <ComboBox fx:id="cmbNivel" layoutX="320.0" layoutY="116.0" prefWidth="100.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="PRINCIPIANTE"/>
+                            <String fx:value="INTERMEDIO"/>
+                            <String fx:value="AVANZADO"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
 
             </children>
         </Pane>
 
-        <!-- TABLA -->
-        <TableView fx:id="tblCursos" layoutX="10.0" layoutY="240.0"
-                   prefHeight="180.0" prefWidth="430.0">
+        <HBox layoutX="10.0" layoutY="170.0" spacing="10">
+            <Button fx:id="btnCrear" text="Crear" onAction="#onCrear" prefWidth="90"/>
+            <Button fx:id="btnActualizar" text="Actualizar" onAction="#onActualizar" prefWidth="90"/>
+            <Button fx:id="btnLimpiar" text="Limpiar" onAction="#onLimpiar" prefWidth="90"/>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" prefWidth="90"/>
+        </HBox>
+
+        <TableView fx:id="tblCursos" layoutX="10.0" layoutY="210.0"
+                   prefHeight="230.0" prefWidth="430.0">
 
             <columns>
                 <TableColumn fx:id="tbcIdCurso" prefWidth="100.0" text="ID Curso"/>
@@ -71,8 +81,8 @@
 
         </TableView>
 
-        <Button fx:id="btnEliminar" layoutX="175.0" layoutY="440.0"
-                prefWidth="100.0" text="Eliminar" onAction="#onEliminar"/>
+        <!-- BOTÓN VOLVER -->
+        <Button text="Volver" layoutX="180.0" layoutY="450.0" prefWidth="100" onAction="#volverAlMenu"/>
 
     </children>
 </AnchorPane>

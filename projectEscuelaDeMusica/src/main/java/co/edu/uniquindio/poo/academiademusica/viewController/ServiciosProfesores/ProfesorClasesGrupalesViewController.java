@@ -1,120 +1,132 @@
 package co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores;
 
-import co.edu.uniquindio.poo.academiademusica.model.*;
-
-import co.edu.uniquindio.poo.academiademusica.model.enums.Instrumento;
-import co.edu.uniquindio.poo.academiademusica.model.enums.Nivel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.collections.*;
-
-import java.time.LocalDateTime;
+import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.fxml.FXMLLoader;
+import java.io.IOException;
 
 public class ProfesorClasesGrupalesViewController {
 
-    @FXML private TextField txtInstrumento, txtAula, txtCupos, txtHorario;
+    @FXML private ComboBox<String> cmbInstrumento;
     @FXML private ComboBox<String> cmbNivel;
-    @FXML private TableView<ClaseGrupal> tablaClases;
-    @FXML private TableColumn<ClaseGrupal, String> colInst, colNivel, colAula, colHorario;
-    @FXML private TableColumn<ClaseGrupal, Integer> colCupos;
+    @FXML private TextField txtAula;
+    @FXML private TextField txtCupos;
+    @FXML private TextField txtHorario;
 
-    private ObservableList<ClaseGrupal> listaClases = FXCollections.observableArrayList();
+    @FXML private TableView<Clase> tablaClases;
+    @FXML private TableColumn<Clase, String> colInst;
+    @FXML private TableColumn<Clase, String> colNivel;
+    @FXML private TableColumn<Clase, String> colAula;
+    @FXML private TableColumn<Clase, String> colCupos;
+    @FXML private TableColumn<Clase, String> colHorario;
+
+    private final ObservableList<Clase> listaClases = FXCollections.observableArrayList();
 
     @FXML
-    public void initialize() {
+    private void initialize() {
+        cmbInstrumento.setItems(FXCollections.observableArrayList(
+                "PIANO", "GUITARRA", "VIOLIN", "CANTO", "BATERIA"
+        ));
+        cmbNivel.setItems(FXCollections.observableArrayList(
+                "PRINCIPIANTE", "INTERMEDIO", "AVANZADO"
+        ));
 
-        cmbNivel.setItems(FXCollections.observableArrayList("1", "2", "3", "4"));
+        configurarTabla();
+    }
 
-        colInst.setCellValueFactory(c -> c.getValue().instrumentoProperty());
-        colNivel.setCellValueFactory(c -> c.getValue().nivelProperty());
-        colAula.setCellValueFactory(c -> c.getValue().aulaProperty());
-        colHorario.setCellValueFactory(c -> c.getValue().horarioProperty());
-        colCupos.setCellValueFactory(c -> c.getValue().cuposProperty().asObject());
+    private void configurarTabla() {
+        colInst.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getInstrumento()));
+        colNivel.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getNivel()));
+        colAula.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getAula()));
+        colCupos.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getCupos()));
+        colHorario.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getHorario()));
 
         tablaClases.setItems(listaClases);
     }
 
     @FXML
     private void crearClase() {
+        String instrumento = cmbInstrumento.getValue();
+        String nivel = cmbNivel.getValue();
+        String aula = txtAula.getText().trim();
+        String cupos = txtCupos.getText().trim();
+        String horario = txtHorario.getText().trim();
 
-        if (txtInstrumento.getText().isBlank() ||
-                cmbNivel.getValue() == null ||
-                txtAula.getText().isBlank() ||
-                txtCupos.getText().isBlank() ||
-                txtHorario.getText().isBlank()) {
-
-            mostrar("Todos los campos son obligatorios.");
+        if(instrumento == null || nivel == null || aula.isEmpty() || cupos.isEmpty() || horario.isEmpty()) {
+            mostrarAlerta("Todos los campos son obligatorios.");
             return;
         }
 
-        int cupos;
-        try {
-            cupos = Integer.parseInt(txtCupos.getText());
-        } catch (Exception e) {
-            mostrar("Cupos debe ser un número.");
-            return;
-        }
+        Clase nuevaClase = new Clase(instrumento, nivel, aula, cupos, horario);
+        listaClases.add(nuevaClase);
 
-        // ------------ CREACIÓN DE OBJETOS REALES ------------
-
-        Profesor profesor = new Profesor(
-                "Profesor Temporal",         // nombre
-                "temporal@correo.com",       // email
-                "P1",                         // idProfesor
-                Instrumento.valueOf(txtInstrumento.getText().toUpperCase()), // instrumento
-                "General"                     // especialidad
-        );
-
-        Curso curso = new Curso(
-                20,                          // capacidad
-                Instrumento.valueOf(txtInstrumento.getText().toUpperCase()),
-                Nivel.valueOf(cmbNivel.getValue().toUpperCase())
-        );
-
-        AdministradorAcademico admin = new AdministradorAcademico("Juan","juan@","J001");
-
-        Salon salon = new Salon(
-                txtAula.getText(),  // nombre del salón
-                20,                 // capacidad
-                admin               // administrador8
-        );
-
-
-        LocalDateTime horario;
-        try {
-            horario = LocalDateTime.parse(txtHorario.getText());
-        } catch (Exception e) {
-            mostrar("Formato de horario incorrecto. Usa: 2025-11-17T15:30");
-            return;
-        }
-
-        ClaseGrupal nueva = new ClaseGrupal(
-                "CG-" + (listaClases.size() + 1),      // id
-                Integer.parseInt(cmbNivel.getValue()), // nivel
-                horario,
-                cupos,
-                profesor,
-                curso,
-                salon,
-                txtInstrumento.getText()
-        );
-
-        listaClases.add(nueva);
         limpiarCampos();
-}
-
-    private void limpiarCampos() {
-        txtInstrumento.clear();
-        txtAula.clear();
-        txtCupos.clear();
-        txtHorario.clear();
-        cmbNivel.setValue(null);
     }
 
     @FXML
-    private void volver() {}
+    private void eliminarClase() {
+        Clase seleccionado = tablaClases.getSelectionModel().getSelectedItem();
+        if (seleccionado == null) {
+            mostrarAlerta("Seleccione una clase para eliminar.");
+            return;
+        }
+        listaClases.remove(seleccionado);
+    }
 
-    private void mostrar(String msg) {
-        new Alert(Alert.AlertType.WARNING, msg).show();
+    private void limpiarCampos() {
+        cmbInstrumento.setValue(null);
+        cmbNivel.setValue(null);
+        txtAula.clear();
+        txtCupos.clear();
+        txtHorario.clear();
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void volver() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/academiademusica/Usuarios/CrudUsuario.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) cmbInstrumento.getScene().getWindow();
+            stage.setScene(new Scene(root, 500, 300));
+            stage.setTitle("Menú Principal");
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("No se pudo regresar al menú principal: " + e.getMessage());
+        }
+    }
+
+//se cambia para manejar la tabla
+    public static class Clase {
+        private final String instrumento;
+        private final String nivel;
+        private final String aula;
+        private final String cupos;
+        private final String horario;
+
+        public Clase(String instrumento, String nivel, String aula, String cupos, String horario) {
+            this.instrumento = instrumento;
+            this.nivel = nivel;
+            this.aula = aula;
+            this.cupos = cupos;
+            this.horario = horario;
+        }
+
+        public String getInstrumento() { return instrumento; }
+        public String getNivel() { return nivel; }
+        public String getAula() { return aula; }
+        public String getCupos() { return cupos; }
+        public String getHorario() { return horario; }
     }
 }

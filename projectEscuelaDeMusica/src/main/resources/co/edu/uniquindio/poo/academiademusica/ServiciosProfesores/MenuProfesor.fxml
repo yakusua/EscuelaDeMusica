@@ -8,7 +8,8 @@
             fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesores.MenuProfesorViewController"
             prefWidth="350.0" prefHeight="450.0">
 
-    <VBox alignment="CENTER" spacing="20"
+    <VBox fx:id="root"
+          alignment="CENTER" spacing="20"
           AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
           AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
 

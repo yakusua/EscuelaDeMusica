@@ -44,7 +44,23 @@ public class ProfesorViewController {
     public void setProfesorController(ProfesorController controller) {
         this.profesorController = controller;
     }
+    @FXML
+    public void volverAlMenuPrincipal() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/academiademusica/Usuarios/CrudUsuario.fxml"));
+            Parent root = loader.load();
 
+            Stage stage = (Stage) txtNombre.getScene().getWindow();
+
+            Scene scene = new Scene(root, 500, 300);
+            stage.setScene(scene);
+            stage.setTitle("Menú Principal");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("No se pudo regresar al menú principal: " + e.getMessage());
+        }
+    }
     private void cargarRoles() {
         cmbRol.getItems().addAll("Administrador Académico", "Profesor", "Estudiante");
 

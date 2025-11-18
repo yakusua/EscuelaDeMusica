@@ -2,8 +2,14 @@ package co.edu.uniquindio.poo.academiademusica.viewController.ServiciosProfesore
 
 import co.edu.uniquindio.poo.academiademusica.model.Registro;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.collections.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ProfesorAsistenciaViewController {
 
@@ -14,6 +20,7 @@ public class ProfesorAsistenciaViewController {
 
     private ObservableList<Registro> lista = FXCollections.observableArrayList();
 
+
     @FXML
     public void initialize() {
 
@@ -22,8 +29,13 @@ public class ProfesorAsistenciaViewController {
         colProgreso.setCellValueFactory(c -> c.getValue().progresoProperty());
 
         lista.addAll(
-                new Registro("Juan", "Pendiente", "0%"),
-                new Registro("Sara", "Pendiente", "0%")
+                new Registro("Juan", " Presente  PRESENTE, AUSENTE, EXCUSA", "0%"),
+                new Registro("Sara", "Presente", "0%"),
+                new Registro("Lucia", "Ausente", "20%"),
+                new Registro("Valentina", "Excusa", "0%"),
+                new Registro("Salomé", "Ausente", "0%"),
+                new Registro("Emiliano", "Presente", "0%"),
+                new Registro("Mario", "Excusa", "0%")
         );
 
         tablaAsistencia.setItems(lista);
@@ -42,6 +54,12 @@ public class ProfesorAsistenciaViewController {
         if (r == null) return;
         r.setAsistencia("Ausente");
     }
+    @FXML
+    private void marcarExcusa() {
+        Registro r = tablaAsistencia.getSelectionModel().getSelectedItem();
+        if (r == null) return;
+        r.setAsistencia("Excusa");
+    }
 
     @FXML
     private void subirProgreso() {
@@ -53,9 +71,28 @@ public class ProfesorAsistenciaViewController {
 
         r.setProgreso(nuevo + "%");
     }
-
     @FXML
     private void volver() {
-        // pendiente enlazar con ProfesorViewController
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/co/edu/uniquindio/poo/academiademusica/ServiciosProfesores/MenuProfesor.fxml"
+            ));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) tablaAsistencia.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error al regresar al menú del profesor: " + e.getMessage());
+        }
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }

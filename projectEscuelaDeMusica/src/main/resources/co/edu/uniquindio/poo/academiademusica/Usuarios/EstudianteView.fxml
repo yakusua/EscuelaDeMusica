@@ -1,67 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.EstudianteViewController">
+<AnchorPane prefHeight="700.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.academiademusica.viewController.EstudianteViewController">
+
     <children>
-        <Pane layoutX="10.0" layoutY="10.0" prefHeight="330.0" prefWidth="580.0" style="-fx-border-color: #cccccc; -fx-border-radius: 5;">
+        <Pane layoutX="10" layoutY="10" prefHeight="330" prefWidth="580">
             <children>
-                <Label layoutX="175.0" layoutY="15.0" text="Gestión de Estudiantes">
-                    <font><Font name="System Bold" size="18.0" /></font>
+
+                <Label layoutX="175" layoutY="15" text="Gestión de Estudiantes">
+                    <font><Font size="18"/></font>
                 </Label>
 
-                <Label layoutX="30.0" layoutY="50.0" text="ID Estudiante:"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtIdEstudiante" layoutX="140.0" layoutY="46.0" prefWidth="150.0" promptText="Identificador Único" />
+                <Label layoutX="30" layoutY="50" text="ID Estudiante:"/>
+                <TextField fx:id="txtIdEstudiante" layoutX="140" layoutY="46" prefWidth="150"/>
 
-                <Label layoutX="310.0" layoutY="50.0" text="Edad:"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtEdad" layoutX="370.0" layoutY="46.0" prefWidth="150.0" promptText="Edad (int)" />
+                <Label layoutX="310" layoutY="50" text="Edad:"/>
+                <TextField fx:id="txtEdad" layoutX="370" layoutY="46" prefWidth="150"/>
 
-                <Label layoutX="30.0" layoutY="85.0" text="Nombre:"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtNombre" layoutX="140.0" layoutY="81.0" prefWidth="380.0" promptText="Nombre Completo" />
+                <Label layoutX="30" layoutY="85" text="Nombre:"/>
+                <TextField fx:id="txtNombre" layoutX="140" layoutY="81" prefWidth="380"/>
 
-                <Label layoutX="30.0" layoutY="120.0" text="Email:"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtEmail" layoutX="140.0" layoutY="116.0" prefWidth="380.0" promptText="Correo Electrónico" />
+                <Label layoutX="30" layoutY="120" text="Email:"/>
+                <TextField fx:id="txtEmail" layoutX="140" layoutY="116" prefWidth="380"/>
 
-                <Label layoutX="30.0" layoutY="155.0" text="Rol:"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtRol" layoutX="140.0" layoutY="151.0" prefWidth="150.0" promptText="Rol del Estudiante" />
+                <Label layoutX="30" layoutY="155" text="Nivel:"/>
+                <ComboBox fx:id="cmbNivel" layoutX="140" layoutY="151" prefWidth="150"/>
 
-                <Label layoutX="310.0" layoutY="155.0" text="Nivel:"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtNivel" layoutX="370.0" layoutY="151.0" prefWidth="150.0" promptText="Nivel (Ej: 'Principiante')" />
+                <Label layoutX="310" layoutY="155" text="Curso:"/>
+                <TextField fx:id="txtCurso" layoutX="370" layoutY="151" prefWidth="150"/>
 
-                <Label layoutX="30.0" layoutY="190.0" text="Curso Asignado:"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtCurso" layoutX="140.0" layoutY="186.0" prefWidth="380.0" promptText="ID o Nombre del Curso" />
+                <Label layoutX="30" layoutY="190" text="Asistencia (%):"/>
+                <TextField fx:id="txtAsistencia" layoutX="140" layoutY="186" prefWidth="150"/>
 
-                <Label layoutX="30.0" layoutY="225.0" text="Asistencia (%):"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtAsistencia" layoutX="140.0" layoutY="221.0" prefWidth="150.0" promptText="Asistencia (double)" />
+                <Label layoutX="310" layoutY="190" text="Progreso (%):"/>
+                <TextField fx:id="txtProgreso" layoutX="370" layoutY="186" prefWidth="150"/>
 
-                <Label layoutX="310.0" layoutY="225.0" text="Progreso (%):"><font><Font size="14.0" /></font></Label>
-                <TextField fx:id="txtProgreso" layoutX="370.0" layoutY="221.0" prefWidth="150.0" promptText="Progreso (double)" />
+                <Button text="Crear" layoutX="60" layoutY="280" onAction="#onCrear"/>
+                <Button text="Actualizar" layoutX="240" layoutY="280" onAction="#onActualizar"/>
+                <Button text="Limpiar" layoutX="420" layoutY="280" onAction="#onLimpiar"/>
 
-                <Button fx:id="btnCrear" layoutX="60.0" layoutY="280.0" mnemonicParsing="false" onAction="#onCrear" prefWidth="100.0" text="Crear" />
-                <Button fx:id="btnActualizar" layoutX="240.0" layoutY="280.0" mnemonicParsing="false" onAction="#onActualizar" prefWidth="100.0" text="Actualizar" />
-                <Button fx:id="btnLimpiar" layoutX="420.0" layoutY="280.0" mnemonicParsing="false" onAction="#onLimpiar" prefWidth="100.0" text="Limpiar" />
             </children>
         </Pane>
 
-        <TableView fx:id="tblEstudiantes" layoutX="10.0" layoutY="350.0" prefHeight="300.0" prefWidth="580.0">
+        <TableView fx:id="tblEstudiantes" layoutX="10" layoutY="350"
+                   prefHeight="300" prefWidth="580">
             <columns>
-                <TableColumn fx:id="tbcIdEstudiante" prefWidth="80.0" text="ID" />
-                <TableColumn fx:id="tbcNombre" prefWidth="150.0" text="Nombre" />
-                <TableColumn fx:id="tbcNivel" prefWidth="80.0" text="Nivel" />
-                <TableColumn fx:id="tbcCurso" prefWidth="100.0" text="Curso" />
-                <TableColumn fx:id="tbcAsistencia" prefWidth="85.0" text="Asistencia" />
-                <TableColumn fx:id="tbcProgreso" prefWidth="85.0" text="Progreso" />
+                <TableColumn fx:id="tbcIdEstudiante" text="ID" prefWidth="80"/>
+                <TableColumn fx:id="tbcNombre" text="Nombre" prefWidth="150"/>
+                <TableColumn fx:id="tbcNivel" text="Nivel" prefWidth="80"/>
+                <TableColumn fx:id="tbcCurso" text="Curso" prefWidth="100"/>
+                <TableColumn fx:id="tbcAsistencia" text="Asistencia" prefWidth="85"/>
+                <TableColumn fx:id="tbcProgreso" text="Progreso" prefWidth="85"/>
             </columns>
-            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
         </TableView>
 
-        <Button fx:id="btnEliminar" layoutX="250.0" layoutY="665.0" mnemonicParsing="false" onAction="#onEliminar" prefWidth="100.0" text="Eliminar" />
+        <Button fx:id="btnEliminar" layoutX="250" layoutY="665"
+                text="Eliminar" onAction="#onEliminar"/>
+
+        <Button layoutX="430" layoutY="665" text="Volver"
+                onAction="#volverAlMenuPrincipal"/>
     </children>
 </AnchorPane>

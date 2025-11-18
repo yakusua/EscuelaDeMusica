@@ -14,11 +14,11 @@
             <Insets top="15" right="20" bottom="15" left="20"/>
         </padding>
 
-        <!-- TÍTULO -->
+        <!-- title ventana-->
         <Label text="Gestión Profesores"
                style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
 
-        <!-- FORMULARIO -->
+        <!-- form -->
         <GridPane hgap="10" vgap="10">
             <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" minWidth="130"/>
@@ -50,7 +50,7 @@
                       GridPane.rowIndex="5" GridPane.columnIndex="1"/>
         </GridPane>
 
-        <!-- BOTONES CRUD -->
+        <!-- botones add colores -->
         <HBox spacing="10" alignment="CENTER">
             <Button text="Agregar" onAction="#onAgregarProfesor"
                     style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
@@ -64,7 +64,6 @@
                     style="-fx-background-color: #3298ab; -fx-text-fill: white;"/>
         </HBox>
 
-        <!-- TABLA -->
         <TableView fx:id="tblProfesores" prefHeight="260">
             <columns>
                 <TableColumn fx:id="tbcId" text="ID" prefWidth="100"/>
@@ -81,7 +80,10 @@
                 <Insets top="10" right="0" bottom="5" left="0"/>
             </padding>
 
-
+            <Button text="Volver"
+                    onAction="#volverAlMenuPrincipal"
+                    style="-fx-background-color: #7f8c8d; -fx-text-fill: white;"
+                    prefWidth="140"/>
         </HBox>
     </VBox>
 </AnchorPane>

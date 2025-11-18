@@ -27,10 +27,6 @@ public class VentanaPrincipalViewController {
         abrirVentana("/co/edu/uniquindio/poo/academiademusica/SalonView.fxml", "Salones");
     }
 
-    @FXML
-    public void abrirReportes() {
-        abrirVentana("/co/edu/uniquindio/poo/academiademusica/ReporteProgreso.fxml", "Reportes");
-    }
 
     private void abrirVentana(String ruta, String titulo) {
         try {

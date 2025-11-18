@@ -23,6 +23,14 @@ public class ClaseIndividual extends Clase {
     public Estudiante getEstudiante() { return estudiante; }
     public void setEstudiante(Estudiante estudiante) { this.estudiante = estudiante; }
 
+    public String getInstrumento() {
+        return instrumento;
+    }
+
+    public void setInstrumento(String instrumento) {
+        this.instrumento = instrumento;
+    }
+
     @Override
     public List<Estudiante> obtenerEstudiantesInscritos() {
         List<Estudiante> lista = new ArrayList<>();

@@ -3,5 +3,9 @@ public record ReporteProgreso(String id,Estudiante estudiante, Curso curso, doub
     public Object getId() {
         return id;
     }
+
+    public int getProgreso() {
+        return 0;
+    }
 }
 
